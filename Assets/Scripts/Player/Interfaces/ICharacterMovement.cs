@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RunShooter.Player
+namespace RunShooter.Character
 {
     public interface ICharacterMovement
     {

@@ -10,6 +10,8 @@ namespace RunShooter.Character
     {
         public Action<float> OnHealthChanged;
         public Action OnDead;
+
+        public float MaxValue { get => _maxValue; }
         public float Value { get => _health; }
 
         private float _maxValue;
@@ -34,17 +36,20 @@ namespace RunShooter.Character
 
         public void TakeDamage(float damage)
         {
-            if(_health > damage)
+            if(_health == 0)
             {
-                OnHealthChanged?.Invoke(_health);
                 return;
             }
-            
-            if(_health != 0)
+
+            _health = damage >= _health ? 0 : _health - damage;
+            OnHealthChanged?.Invoke(_health);
+
+            if (_health == 0)
             {
-                _health -= damage;
                 OnDead?.Invoke();
             }
+
+            return;
         }
 
         public void Kill() => TakeDamage(_maxValue);

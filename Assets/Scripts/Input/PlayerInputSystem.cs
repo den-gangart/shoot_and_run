@@ -5,12 +5,17 @@ using UnityEngine;
 
 namespace RunShooter.InputSystem
 {
-    public class PlayerInputSystem : Singleton<PlayerInputSystem>
+    public class PlayerInputSystem
     {
         [SerializeField] private ScreenInput _screenInput;
 
         private const string AXIS_HORIZONTAL = "Horizontal";
         private const string AXIS_VERTICAL = "Vertical";
+
+        public void Initialize(ScreenInput screenInput)
+        {
+            _screenInput = screenInput;
+        }
 
         public Vector2 GetMovementAxis()
         {

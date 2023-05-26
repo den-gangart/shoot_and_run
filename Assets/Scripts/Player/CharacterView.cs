@@ -10,6 +10,7 @@ namespace RunShooter.Character
 
         private const string X_AXIS = "x";
         private const string Y_AXIS = "y";
+        private const string IS_DEAD = "isDead";
 
         public void ShowMovement(Vector2 direction)
         {
@@ -19,7 +20,7 @@ namespace RunShooter.Character
 
         public void Kill()
         {
-            
+            _animator.SetBool(IS_DEAD, true);
         }
 
         public void Shoot()

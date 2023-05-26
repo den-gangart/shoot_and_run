@@ -8,9 +8,16 @@ namespace RunShooter.Player
 {
     public class PlayerController : DefaultCharacterController
     {
+        private PlayerInputSystem _inputSystem;
+
+        public void SetInput(PlayerInputSystem inputSystem)
+        {
+            _inputSystem = inputSystem;
+        }
+
         protected override void CheckMovement()
         {
-            Vector2 movementAxis = PlayerInputSystem.Instance.GetMovementAxis();
+            Vector2 movementAxis = _inputSystem.GetMovementAxis();
             Vector3 forward = transform.forward - Vector3.forward;
             Vector2 resultDirecion = Vector2.Reflect(movementAxis, new Vector2(forward.x, forward.z));
 
@@ -20,7 +27,7 @@ namespace RunShooter.Player
 
         protected override void CheckFire()
         {
-            Vector2 fireAxis = PlayerInputSystem.Instance.GetRotationAxis();
+            Vector2 fireAxis = _inputSystem.GetRotationAxis();
 
             if (fireAxis != Vector2.zero)
             { 

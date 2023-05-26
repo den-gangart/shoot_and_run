@@ -17,7 +17,7 @@ namespace RunShooter.Character
         protected ICharacterView _characterView;
         protected CharacterStateHandler _stateHandler;
 
-        private void Start()
+        private void Awake()
         {
             _characterBehaviour = GetComponent<CharacterBehaviour>();
             _stateHandler = _characterBehaviour.StateHandler;
@@ -32,6 +32,17 @@ namespace RunShooter.Character
                 CheckMovement();
                 CheckFire();
             }    
+        }
+
+        private void OnEnable() => _stateHandler.StateChanged += OnStateChanged;
+        private void OnDisable() => _stateHandler.StateChanged -= OnStateChanged;
+
+        private void OnStateChanged(CharacterState newState)
+        {
+            if(newState == CharacterState.Dead)
+            {
+                _characterView.Kill();
+            }
         }
 
         protected virtual void CheckMovement() { }

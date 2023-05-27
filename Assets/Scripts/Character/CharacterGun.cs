@@ -7,8 +7,14 @@ namespace RunShooter.Character
 {
     public class CharacterGun : MonoBehaviour
     {
+        [SerializeField] private GunData _gunData;
+        private Transform _gunParent;
         private BaseGun _gun;
-        [SerializeField] private GunSelector _gunSelector;
+
+        public void Initialize(Transform gunParent)
+        {
+            _gunParent = gunParent;
+        }
 
         public bool TryShoot()
         {
@@ -17,12 +23,14 @@ namespace RunShooter.Character
 
         public void SelectGun(int id)
         {
-            _gun = _gunSelector.SelectGun(id);
-        }
+            if(_gun != null)
+            {
+                Destroy(_gun.gameObject);
+            }
 
-        public void SetSelector()
-        {
-            _gunSelector = GetComponentInChildren<GunSelector>();
+            var gunData =  _gunData.getData(id);
+            _gun = Instantiate(gunData.Prefab, _gunParent);
+            _gun.Initialize(gunData);
         }
     }
 }

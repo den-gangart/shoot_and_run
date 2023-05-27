@@ -11,6 +11,7 @@ namespace RunShooter.Guns
         {
             if(!isReoladed())
             {
+                _gunView.SetShoot(false);
                 return false;
             }
 

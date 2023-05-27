@@ -14,8 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunInfoList:
   - id: 0
+    damage: 15
+    coolDown: 0.5
+    Icon: {fileID: 2800000, guid: 139cd3cadcc2b874098c1a2058eff146, type: 3}
+    Prefab: {fileID: 4515107516723230252, guid: 0ad09dd81121ac247850956387ca9111,
+      type: 3}
+  - id: 1
     damage: 20
     coolDown: 0.1
     Icon: {fileID: 2800000, guid: 139cd3cadcc2b874098c1a2058eff146, type: 3}
-    Prefab: {fileID: 7775909171458005017, guid: 26c304c542935a646a21dd134e1c2cea,
+    Prefab: {fileID: 4445337404709098670, guid: 26c304c542935a646a21dd134e1c2cea,
       type: 3}

@@ -1,3 +1,4 @@
+using RunShooter.Guns;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,9 @@ namespace RunShooter.Character
 {
     public class CharacterView : MonoBehaviour, ICharacterView
     {
+        public CharacterViewInfo ViewInfo { get => _characterViewInfo; }
+
+        [SerializeField] private CharacterViewInfo _characterViewInfo;
         [SerializeField] private Animator _animator;
         [SerializeField] private List<RuntimeAnimatorController> _controllers;
 
@@ -15,6 +19,10 @@ namespace RunShooter.Character
         private readonly int _shoot = Animator.StringToHash("Shoot");
         private readonly int _hit = Animator.StringToHash("Hit");
 
+        private void Awake()
+        {
+            _animator = _characterViewInfo.animator;
+        }
 
         public void ShowMovement(Vector2 direction)
         {
@@ -39,7 +47,7 @@ namespace RunShooter.Character
 
         public void SelectGun(int gunID)
         {
-            
+            _animator.runtimeAnimatorController = _controllers[gunID];
         }
     }
 }

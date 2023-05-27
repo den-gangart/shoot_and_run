@@ -6,6 +6,8 @@ namespace RunShooter.Character
 {
     public interface ICharacterView
     {
+        public CharacterViewInfo ViewInfo { get; }
+
         public void ShowMovement(Vector2 direction);
         public void Hit();
         public void Kill();

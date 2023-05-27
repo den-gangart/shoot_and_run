@@ -23,10 +23,13 @@ namespace RunShooter.Character
             _characterBehaviour = GetComponent<CharacterBehaviour>();
             _characterBehaviour.Initialize();
 
+            _characterView = GetComponent<ICharacterView>();
+
             _characterGun = GetComponent<CharacterGun>();
+            _characterGun.Initialize(_characterView.ViewInfo.gunParent);
+
             _stateHandler = _characterBehaviour.StateHandler;
             _playerMovement = GetComponent<ICharacterMovement>();
-            _characterView = GetComponent<ICharacterView>();
         }
 
         private void FixedUpdate()

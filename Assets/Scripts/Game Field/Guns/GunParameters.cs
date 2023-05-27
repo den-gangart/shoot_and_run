@@ -12,6 +12,6 @@ namespace RunShooter.Guns
         public float coolDown;
 
         public Texture2D Icon;
-        public GameObject Prefab;
+        public BaseGun Prefab;
     }
 }

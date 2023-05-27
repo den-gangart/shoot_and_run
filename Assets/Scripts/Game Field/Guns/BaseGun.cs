@@ -9,18 +9,14 @@ namespace RunShooter.Guns
     public class BaseGun : MonoBehaviour, IGun
     {
         public GunParameters Params { get; private set; }
-        public int Id { get => _id; }
-
-        [SerializeField] protected GunData _gunData;
-        [SerializeField] private int _id;
 
         protected IGunView _gunView;
         private DateTime _shotTime = DateTime.MinValue;
 
-        private void Awake()
+        public void Initialize(GunParameters parameters)
         {
+            Params = parameters;
             _gunView = GetComponent<IGunView>();
-            Params = _gunData.getData(_id);
         }
 
         public virtual bool TryShoot()

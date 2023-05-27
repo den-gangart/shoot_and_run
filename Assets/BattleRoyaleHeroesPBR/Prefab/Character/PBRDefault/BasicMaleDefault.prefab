@@ -4935,7 +4935,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1762018173025169342}
   - component: {fileID: 1762018173025169313}
-  - component: {fileID: 1551251578509904474}
+  - component: {fileID: 9035405930885777637}
   m_Layer: 0
   m_Name: BasicMaleDefault
   m_TagString: Untagged
@@ -5019,7 +5019,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1551251578509904474
+--- !u!114 &9035405930885777637
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5028,12 +5028,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1762018173025169312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b69ebc70ac347ad43a1a7b9421331ac3, type: 3}
+  m_Script: {fileID: 11500000, guid: fb98413963320354b93463bb65404f65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultId: 0
-  _gunList:
-  - {fileID: 5129705000955700860}
+  animator: {fileID: 1762018173025169313}
+  gunParent: {fileID: 1762018171814503567}
 --- !u!1 &1762018173044623599
 GameObject:
   m_ObjectHideFlags: 0
@@ -8435,18 +8434,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8827439360299446994}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5129705000955700860 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4445337404709098670, guid: 26c304c542935a646a21dd134e1c2cea,
-    type: 3}
-  m_PrefabInstance: {fileID: 8827439360299446994}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8583c6c695f518c44a52713fde6c6d51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &9010154885913574595
 PrefabInstance:
   m_ObjectHideFlags: 0

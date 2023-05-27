@@ -21,7 +21,7 @@ namespace RunShooter.Character
         public CharacterStateHandler StateHandler { get; private set; }
         public Health Health { get; private set; }
 
-        private void Awake()
+        public void Initialize()
         {
             StateHandler = new CharacterStateHandler(_defaultState);
             Health = new Health(_healthMaxValue);

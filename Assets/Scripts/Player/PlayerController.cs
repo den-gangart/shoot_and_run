@@ -13,6 +13,7 @@ namespace RunShooter.Player
         public void SetInput(PlayerInputSystem inputSystem)
         {
             _inputSystem = inputSystem;
+            _characterGun.SelectGun(0);
         }
 
         protected override void CheckMovement()
@@ -25,7 +26,7 @@ namespace RunShooter.Player
             _playerMovement.Move(movementAxis);
         }
 
-        protected override void CheckFire()
+        protected override void CheckRotation()
         {
             Vector2 fireAxis = _inputSystem.GetRotationAxis();
 

@@ -8,7 +8,7 @@ namespace RunShooter.Character
 {
     public class Health
     {
-        public Action<float> OnHealthChanged;
+        public Action<float, float> OnHealthChanged;
         public Action OnDead;
 
         public float MaxValue { get => _maxValue; }
@@ -30,8 +30,9 @@ namespace RunShooter.Character
                 return;
             }
 
+            float prev = _health;
             _health += amount;
-            OnHealthChanged?.Invoke(_health);
+            OnHealthChanged?.Invoke(prev, _health);
         }
 
         public void TakeDamage(float damage)
@@ -41,15 +42,14 @@ namespace RunShooter.Character
                 return;
             }
 
+            float prev = _health;
             _health = damage >= _health ? 0 : _health - damage;
-            OnHealthChanged?.Invoke(_health);
+            OnHealthChanged?.Invoke(prev, _health);
 
             if (_health == 0)
             {
                 OnDead?.Invoke();
             }
-
-            return;
         }
 
         public void Kill() => TakeDamage(_maxValue);

@@ -7,12 +7,13 @@ using UnityEngine;
 namespace RunShooter.Character
 {
     [RequireComponent(typeof(CharacterBehaviour))]
+    [RequireComponent(typeof(CharacterGun))]
     [RequireComponent(typeof(ICharacterMovement))]
     [RequireComponent(typeof(ICharacterView))]
     public class DefaultCharacterController : MonoBehaviour
     {
         private CharacterBehaviour _characterBehaviour;
-
+        protected CharacterGun _characterGun;
         protected ICharacterMovement _playerMovement;
         protected ICharacterView _characterView;
         protected CharacterStateHandler _stateHandler;
@@ -20,6 +21,9 @@ namespace RunShooter.Character
         private void Awake()
         {
             _characterBehaviour = GetComponent<CharacterBehaviour>();
+            _characterBehaviour.Initialize();
+
+            _characterGun = GetComponent<CharacterGun>();
             _stateHandler = _characterBehaviour.StateHandler;
             _playerMovement = GetComponent<ICharacterMovement>();
             _characterView = GetComponent<ICharacterView>();
@@ -30,12 +34,21 @@ namespace RunShooter.Character
             if(_stateHandler.State == CharacterState.Idle)
             {
                 CheckMovement();
-                CheckFire();
+                CheckRotation();
+                CheckShoot();
             }    
         }
 
-        private void OnEnable() => _stateHandler.StateChanged += OnStateChanged;
-        private void OnDisable() => _stateHandler.StateChanged -= OnStateChanged;
+        private void OnEnable()
+        {
+            _stateHandler.StateChanged += OnStateChanged;
+            _characterBehaviour.Health.OnHealthChanged += OnHealthChanged;
+        }
+        private void OnDisable()
+        {
+            _stateHandler.StateChanged -= OnStateChanged;
+            _characterBehaviour.Health.OnHealthChanged -= OnHealthChanged;
+        }
 
         private void OnStateChanged(CharacterState newState)
         {
@@ -45,7 +58,23 @@ namespace RunShooter.Character
             }
         }
 
+        private void OnHealthChanged(float prev, float current)
+        {
+            if(current < prev)
+            {
+                _characterView.Hit();
+            }
+        }
+
+        private void CheckShoot()
+        {
+            if(_characterGun.TryShoot())
+            {
+                _characterView.Shoot();
+            }
+        }
+
         protected virtual void CheckMovement() { }
-        protected virtual void CheckFire() { }
+        protected virtual void CheckRotation() { }
     }
 }

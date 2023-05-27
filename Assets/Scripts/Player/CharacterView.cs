@@ -7,25 +7,34 @@ namespace RunShooter.Character
     public class CharacterView : MonoBehaviour, ICharacterView
     {
         [SerializeField] private Animator _animator;
+        [SerializeField] private List<RuntimeAnimatorController> _controllers;
 
-        private const string X_AXIS = "x";
-        private const string Y_AXIS = "y";
-        private const string IS_DEAD = "isDead";
+        private readonly int _xAxis = Animator.StringToHash("x");
+        private readonly int _yAxis = Animator.StringToHash("y");
+        private readonly int _isDead = Animator.StringToHash("isDead");
+        private readonly int _shoot = Animator.StringToHash("Shoot");
+        private readonly int _hit = Animator.StringToHash("Hit");
+
 
         public void ShowMovement(Vector2 direction)
         {
-            _animator.SetFloat(X_AXIS, direction.x);
-            _animator.SetFloat(Y_AXIS, direction.y);
+            _animator.SetFloat(_xAxis, direction.x);
+            _animator.SetFloat(_yAxis, direction.y);
         }
 
         public void Kill()
         {
-            _animator.SetBool(IS_DEAD, true);
+            _animator.SetBool(_isDead, true);
         }
 
         public void Shoot()
         {
-          
+            _animator.SetTrigger(_shoot);
+        }
+
+        public void Hit()
+        {
+            _animator.SetTrigger(_hit);
         }
 
         public void SelectGun(int gunID)

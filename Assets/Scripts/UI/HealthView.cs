@@ -13,16 +13,18 @@ namespace RunShooter.UI
         [SerializeField] private Slider _slider;
         private Health _health;
 
+        private const float HEALTH_STEP = 0.001f;
+
         private void Start()
         {
             _health = Root.Instance.Player.GetComponent<CharacterBehaviour>().Health;
             _health.OnHealthChanged += OnHealthChanged;
-            OnHealthChanged(_health.Value);
+            OnHealthChanged(0, _health.Value);
         }
 
         private void OnDestroy() => _health.OnHealthChanged -= OnHealthChanged;
 
-        private void OnHealthChanged(float newAmount)
+        private void OnHealthChanged(float prevAmout, float newAmount)
         {
             if(_health.Value == 0)
             {
@@ -30,7 +32,17 @@ namespace RunShooter.UI
             }
 
             float relativeAmount = newAmount / _health.MaxValue;
-            _slider.value = relativeAmount;
+            StartCoroutine(ChangeHealth(relativeAmount));
+        }
+
+        private IEnumerator ChangeHealth(float relativeAmount)
+        {
+            do
+            {
+                float step = _slider.value > relativeAmount ? -HEALTH_STEP : HEALTH_STEP;
+                _slider.value += step;
+                yield return null;
+            } while (Mathf.Abs(_slider.value  -  relativeAmount) > HEALTH_STEP);
         }
     }
 }

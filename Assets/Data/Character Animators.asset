@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb600ec5ac6a2a40bc4adb8f117cf8f, type: 3}
+  m_Name: Character Animators
+  m_EditorClassIdentifier: 
+  _animatorControllers:
+  - {fileID: 22100000, guid: 52d30d9babd903e4eb14e29aca9f6bb6, type: 2}
+  - {fileID: 22100000, guid: 7eb3c9bebedeb174f863c1b72c5fb57e, type: 2}
+  - {fileID: 9100000, guid: b49ce62dc8e7ad84d9843e0d60faeee5, type: 2}
+  - {fileID: 22100000, guid: 8301951872105fd47a930956d908cdbc, type: 2}
+  - {fileID: 22100000, guid: 11268a49a8bf15345b001a11e7606487, type: 2}
+  _gunData: {fileID: 11400000, guid: 6bebb8bf6c7a7e5498a45937732700f7, type: 2}

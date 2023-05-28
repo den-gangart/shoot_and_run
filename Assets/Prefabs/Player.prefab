@@ -125,8 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterViewInfo: {fileID: 6374365803794988384}
   _animator: {fileID: 4422970305887984164}
-  _controllers:
-  - {fileID: 9100000, guid: b49ce62dc8e7ad84d9843e0d60faeee5, type: 2}
+  _animators: {fileID: 11400000, guid: 8f2f520857e2fa04cb73975096957d41, type: 2}
 --- !u!114 &2671336333759498549
 MonoBehaviour:
   m_ObjectHideFlags: 0

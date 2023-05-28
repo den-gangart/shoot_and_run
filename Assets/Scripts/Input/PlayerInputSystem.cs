@@ -11,6 +11,7 @@ namespace RunShooter.InputSystem
 
         private const string AXIS_HORIZONTAL = "Horizontal";
         private const string AXIS_VERTICAL = "Vertical";
+        private const string AXIS_FIRE = "Fire1";
 
         public void Initialize(ScreenInput screenInput)
         {
@@ -37,5 +38,7 @@ namespace RunShooter.InputSystem
 
             return _screenInput.RotationAxis;
         }
+
+        public bool GetFire() => Input.GetAxis(AXIS_FIRE) > 0;
     }
 }

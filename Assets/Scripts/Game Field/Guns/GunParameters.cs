@@ -1,3 +1,4 @@
+using RunShooter.Character;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,5 +14,6 @@ namespace RunShooter.Guns
 
         public Texture2D Icon;
         public BaseGun Prefab;
+        public CharacterAnimatorType AnimatorType;
     }
 }

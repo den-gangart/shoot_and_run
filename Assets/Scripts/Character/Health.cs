@@ -31,7 +31,7 @@ namespace RunShooter.Character
             }
 
             float prev = _health;
-            _health += amount;
+            _health = Mathf.Clamp(_health + amount, 0, _maxValue);
             OnHealthChanged?.Invoke(prev, _health);
         }
 

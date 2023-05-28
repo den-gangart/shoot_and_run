@@ -10,7 +10,7 @@ namespace RunShooter.Guns
         [SerializeField] private float _minFXTime;
         [SerializeField] private GameObject _fxObject;
 
-        private bool _isShooting = false;
+        protected bool _isShooting = false;
         private DateTime _lastFxTime = DateTime.MinValue;
 
         public void SetShoot(bool isShooting)
@@ -29,13 +29,13 @@ namespace RunShooter.Guns
         {
             if (_isShooting)
             {
+                _isShooting = false;
                 return;
             }
 
-            bool isFxDone = _lastFxTime.AddSeconds(_minFXTime) < DateTime.Now;
-            if (isFxDone)
+            if (_lastFxTime.AddSeconds(_minFXTime) < DateTime.Now)
             {
-                _fxObject.SetActive(false);
+                SetFXParams();
             }
         }
 
@@ -44,8 +44,13 @@ namespace RunShooter.Guns
             if (_isShooting)
             {
                 _lastFxTime = DateTime.Now;
-                _fxObject.SetActive(true);
+                SetFXParams();
             }
+        }
+
+        protected virtual void SetFXParams()
+        {
+            _fxObject.SetActive(_isShooting);
         }
     }
 }

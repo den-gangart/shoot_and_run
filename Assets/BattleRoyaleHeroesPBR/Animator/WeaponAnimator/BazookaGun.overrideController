@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BazookaGun
+  m_Controller: {fileID: 9100000, guid: ddddb9821fe87d74cb6013a1ede37731, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 8508ceea605fa6543a83e5a7eba00219, type: 3}
+    m_OverrideClip: {fileID: 7400006, guid: 06cfba1a221c67a4fb7ec35fc01b4073, type: 3}
+  - m_OriginalClip: {fileID: 7400002, guid: 8508ceea605fa6543a83e5a7eba00219, type: 3}
+    m_OverrideClip: {fileID: 7400004, guid: 06cfba1a221c67a4fb7ec35fc01b4073, type: 3}

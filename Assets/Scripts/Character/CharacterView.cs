@@ -11,7 +11,7 @@ namespace RunShooter.Character
 
         [SerializeField] private CharacterViewInfo _characterViewInfo;
         [SerializeField] private Animator _animator;
-        [SerializeField] private List<RuntimeAnimatorController> _controllers;
+        [SerializeField] private CharacterAnimators_ScriptableObject _animators;
 
         private readonly int _xAxis = Animator.StringToHash("x");
         private readonly int _yAxis = Animator.StringToHash("y");
@@ -47,7 +47,7 @@ namespace RunShooter.Character
 
         public void SelectGun(int gunID)
         {
-            _animator.runtimeAnimatorController = _controllers[gunID];
+            _animator.runtimeAnimatorController = _animators.GetController(gunID);
         }
     }
 }

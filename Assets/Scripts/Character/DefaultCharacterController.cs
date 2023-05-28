@@ -69,17 +69,18 @@ namespace RunShooter.Character
             }
         }
 
-        private void CheckShoot()
-        {
-            if(_characterGun.TryShoot())
-            {
-                _characterView.Shoot();
-            }
-        }
-
         public void SelectGun(int gunid)
         {
             _characterGun.SelectGun(gunid);
+            _characterView.SelectGun(gunid);
+        }
+
+        protected virtual void CheckShoot()
+        {
+            if (_characterGun.TryShoot())
+            {
+                _characterView.Shoot();
+            }
         }
 
         protected virtual void CheckMovement() { }

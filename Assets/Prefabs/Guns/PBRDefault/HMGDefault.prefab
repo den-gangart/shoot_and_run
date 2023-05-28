@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 498d1213e6e13cf44b24c007bffcd9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _minFXTime: 0.1
   _fxObject: {fileID: 1001204559864476472}
 --- !u!1 &4948553974734094529
 GameObject:

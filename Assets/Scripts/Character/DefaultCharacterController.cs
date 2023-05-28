@@ -77,6 +77,11 @@ namespace RunShooter.Character
             }
         }
 
+        public void SelectGun(int gunid)
+        {
+            _characterGun.SelectGun(gunid);
+        }
+
         protected virtual void CheckMovement() { }
         protected virtual void CheckRotation() { }
     }

@@ -6,6 +6,6 @@ namespace RunShooter.Guns
 {
     public interface IGunView
     {
-        void SetShoot(bool isShooting);
+        void Shoot();
     }
 }

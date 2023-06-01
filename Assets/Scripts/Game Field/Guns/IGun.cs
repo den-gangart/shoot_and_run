@@ -6,6 +6,6 @@ namespace RunShooter.Guns
 {
     public interface IGun
     {
-        bool TryShoot();
+        bool TryShoot(IDamagable damagable);
     }
 }

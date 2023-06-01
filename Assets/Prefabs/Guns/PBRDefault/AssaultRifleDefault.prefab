@@ -4891,7 +4891,7 @@ GameObject:
   - component: {fileID: 7775909171455001625}
   - component: {fileID: 7775909171456001753}
   - component: {fileID: 4445337404709098670}
-  - component: {fileID: 2297854018816008086}
+  - component: {fileID: 6241390401133607105}
   m_Layer: 0
   m_Name: AssaultRifleDefault
   m_TagString: Untagged
@@ -4977,7 +4977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8583c6c695f518c44a52713fde6c6d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2297854018816008086
+--- !u!114 &6241390401133607105
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4986,7 +4986,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7775909171458005017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 498d1213e6e13cf44b24c007bffcd9f5, type: 3}
+  m_Script: {fileID: 11500000, guid: a6fbc09033ea30e4784ee9a9a34b153d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _minFXTime: 0.1

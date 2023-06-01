@@ -4,13 +4,8 @@ using UnityEngine;
 
 namespace RunShooter.Character
 {
-    public enum CharacterType
-    {
-        Player,
-        Enemy,
-    }
 
-    public class CharacterBehaviour : MonoBehaviour, IDamagable
+    public class CharacterBehaviour : MonoBehaviour, IDamagable, ICharacter
     {
         [SerializeField] private CharacterState _defaultState;
         [SerializeField] private CharacterType _characterType;
@@ -18,6 +13,7 @@ namespace RunShooter.Character
 
         private const float DESTROY_TIME = 2f;
 
+        public CharacterType CharacterType { get { return _characterType; } }
         public CharacterStateHandler StateHandler { get; private set; }
         public Health Health { get; private set; }
 

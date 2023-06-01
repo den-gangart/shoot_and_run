@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3823321262692109988}
   - component: {fileID: 3823321262688718468}
   - component: {fileID: 3823321262689815620}
-  - component: {fileID: 4497515739703952606}
+  - component: {fileID: 8068492510709280246}
   - component: {fileID: 329038325766146538}
   m_Layer: 0
   m_Name: PistolDefault
@@ -86,7 +86,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4497515739703952606
+--- !u!114 &8068492510709280246
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3823321262691816068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 498d1213e6e13cf44b24c007bffcd9f5, type: 3}
+  m_Script: {fileID: 11500000, guid: a6fbc09033ea30e4784ee9a9a34b153d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minFXTime: 0.1
+  _minFXTime: 0.2
   _fxObject: {fileID: 4707723188098659084}
 --- !u!114 &329038325766146538
 MonoBehaviour:

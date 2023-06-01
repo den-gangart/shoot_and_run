@@ -6,7 +6,7 @@ using UnityEngine;
 namespace RunShooter.Guns
 {
     [RequireComponent(typeof(Animator))]
-    public class AnimatedGunView : BaseGunView
+    public class AnimatedGunView : FXGunView
     {
         private Animator _animator;
         private readonly int _animShootingState = Animator.StringToHash("Shoot");
@@ -16,10 +16,10 @@ namespace RunShooter.Guns
             _animator = GetComponent<Animator>();
         }
 
-        protected override void SetFXParams()
+        protected override void OnChanged(bool isShooting)
         {
-            _animator.SetBool(_animShootingState, _isShooting);
-            base.SetFXParams();
+            _animator.SetBool(_animShootingState, isShooting);
+            base.OnChanged(isShooting);
         }
     }
 }

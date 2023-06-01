@@ -11,6 +11,7 @@ namespace RunShooter.Guns
         public int id;
         public float damage;
         public float coolDown;
+        public float maxDistance;
 
         public Texture2D Icon;
         public BaseGun Prefab;

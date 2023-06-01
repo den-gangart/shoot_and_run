@@ -9,9 +9,8 @@ namespace RunShooter.Guns
     public class BaseGun : MonoBehaviour, IGun
     {
         public GunParameters Params { get; private set; }
-
+        public bool OnReolad { get; private set; }
         protected IGunView _gunView;
-        private DateTime _shotTime = DateTime.MinValue;
 
         public void Initialize(GunParameters parameters)
         {
@@ -19,22 +18,38 @@ namespace RunShooter.Guns
             _gunView = GetComponent<IGunView>();
         }
 
-        public virtual bool TryShoot()
+        public bool TryShoot(IDamagable damagable)
         {
-            if (isReoladed())
+            if (!OnReolad)
             {
-                Shoot();
+                Shoot(damagable);
+                Reolad();
                 return true;
             }
 
             return false;
         }
 
-        protected bool isReoladed() => _shotTime.AddSeconds(Params.coolDown) < DateTime.Now;
+        protected virtual void Shoot(IDamagable damagable) 
+        { 
+            if(damagable != null)
+            {
+                damagable.TakeDamage(Params.damage);
+            }
 
-        protected virtual void Shoot() 
+            _gunView.Shoot();
+        }
+
+        protected void Reolad()
         {
-            _shotTime = DateTime.Now;
+            OnReolad = true;
+            StartCoroutine(ReoladRoutine());
+        }
+
+        private IEnumerator ReoladRoutine()
+        {
+            yield return new WaitForSeconds(Params.coolDown);
+            OnReolad = false;
         }
     }
 }

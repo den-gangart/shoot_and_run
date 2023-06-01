@@ -271,7 +271,7 @@ MonoBehaviour:
   - {fileID: 1917022695897904482}
   - {fileID: 7204950097729137496}
   - {fileID: 9217563068857122056}
-  _selectedGunId: 0
+  _selectedGunId: 2
 --- !u!1 &1917022696815935098
 GameObject:
   m_ObjectHideFlags: 0

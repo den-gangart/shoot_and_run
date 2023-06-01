@@ -51,6 +51,5 @@ MonoBehaviour:
     damage: 15
     coolDown: 2
     Icon: {fileID: 2800000, guid: 139cd3cadcc2b874098c1a2058eff146, type: 3}
-    Prefab: {fileID: 4445337404709098670, guid: 26c304c542935a646a21dd134e1c2cea,
-      type: 3}
+    Prefab: {fileID: 389258904427037386, guid: 7b2284d4a9faf474492e3b11a78a77ca, type: 3}
     AnimatorType: 0

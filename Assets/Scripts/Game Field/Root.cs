@@ -5,7 +5,6 @@ using RunShooter.UI;
 using RunShooter.Character;
 using RunShooter.InputSystem;
 using RunShooter.Player;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace RunShooter.GameProccess
 {
@@ -18,7 +17,7 @@ namespace RunShooter.GameProccess
 
         [SerializeField] private GameFieldUI _playerUIPrefab;
 
-        private void Start()
+        protected override void OnAwake()
         {
             PlayerInputSystem playerInputSystem = new PlayerInputSystem();
 

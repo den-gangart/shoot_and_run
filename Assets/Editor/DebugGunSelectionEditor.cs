@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RunShooter.Character
 {
-    [CustomEditor(typeof(TestGunSelection))]
+    [CustomEditor(typeof(CharacterGunSelector))]
     public class DebugGunSelectionEditor : Editor
     {
         public override void OnInspectorGUI()
@@ -14,7 +14,7 @@ namespace RunShooter.Character
 
             if(GUILayout.Button("Select"))
             {
-                ((TestGunSelection)target).Select();
+                ((CharacterGunSelector)target).Select();
             }
         }
     }

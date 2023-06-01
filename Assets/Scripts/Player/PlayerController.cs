@@ -13,7 +13,6 @@ namespace RunShooter.Player
         public void SetInput(PlayerInputSystem inputSystem)
         {
             _inputSystem = inputSystem;
-            SelectGun(0);
         }
 
         protected override void CheckMovement()

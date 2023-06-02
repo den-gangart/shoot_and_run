@@ -40,8 +40,12 @@ namespace RunShooter.Character
 
             if (_characterType == CharacterType.Enemy)
             {
+                EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_ENEMY_DEAD));
                 StartCoroutine(DestroyRoutine());
+                return;
             }
+
+            EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_PLAYER_DEAD));
         }
 
         private IEnumerator DestroyRoutine()

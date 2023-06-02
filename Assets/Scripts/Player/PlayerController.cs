@@ -22,7 +22,7 @@ namespace RunShooter.Player
             Vector2 resultDirecion = Vector2.Reflect(movementAxis, new Vector2(forward.x, forward.z));
 
             _characterView.ShowMovement(resultDirecion);
-            _playerMovement.Move(movementAxis);
+            _characterMovement.Move(movementAxis);
         }
 
         protected override void CheckRotation()
@@ -31,7 +31,7 @@ namespace RunShooter.Player
 
             if (fireAxis != Vector2.zero)
             { 
-                _playerMovement.Rotate(fireAxis);
+                _characterMovement.Rotate(fireAxis);
             }
         }
     }

@@ -34,5 +34,11 @@ namespace RunShooter.Player
             Quaternion rotation = Quaternion.Lerp(transform.rotation, loolRotation, _rotationDeltaSpeed);
             transform.rotation = rotation;
         }
+
+        public void Kill()
+        {
+            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.isKinematic = true;
+        }
     }
 }

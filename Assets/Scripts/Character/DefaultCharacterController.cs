@@ -14,7 +14,7 @@ namespace RunShooter.Character
     {
         private CharacterBehaviour _characterBehaviour;
         protected CharacterGun _characterGun;
-        protected ICharacterMovement _playerMovement;
+        protected ICharacterMovement _characterMovement;
         protected ICharacterView _characterView;
         protected CharacterStateHandler _stateHandler;
 
@@ -29,7 +29,7 @@ namespace RunShooter.Character
             _characterGun.Initialize(_characterView.ViewInfo.gunParent);
 
             _stateHandler = _characterBehaviour.StateHandler;
-            _playerMovement = GetComponent<ICharacterMovement>();
+            _characterMovement = GetComponent<ICharacterMovement>();
         }
 
         private void FixedUpdate()
@@ -57,7 +57,7 @@ namespace RunShooter.Character
         {
             if(newState == CharacterState.Dead)
             {
-                _characterView.Kill();
+                HandleDeath();
             }
         }
 
@@ -85,5 +85,11 @@ namespace RunShooter.Character
 
         protected virtual void CheckMovement() { }
         protected virtual void CheckRotation() { }
+
+        protected virtual void HandleDeath()
+        {
+            _characterView.Kill();
+            _characterMovement.Kill();
+        }
     }
 }

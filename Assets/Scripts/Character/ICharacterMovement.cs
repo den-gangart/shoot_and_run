@@ -8,5 +8,6 @@ namespace RunShooter.Character
     {
         void Move(Vector2 axis);
         void Rotate(Vector2 axis);
+        void Kill();
     }
 }

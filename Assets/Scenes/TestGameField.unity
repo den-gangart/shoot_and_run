@@ -575,6 +575,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1053226641653800467, guid: 84db4db5fbe2b584b831b3ce213a552c,
         type: 3}
+      propertyPath: m_Drag
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053226641653800467, guid: 84db4db5fbe2b584b831b3ce213a552c,
+        type: 3}
       propertyPath: m_Mass
       value: 1
       objectReference: {fileID: 0}
@@ -671,7 +676,7 @@ PrefabInstance:
     - target: {fileID: 1053226641653800467, guid: 84db4db5fbe2b584b831b3ce213a552c,
         type: 3}
       propertyPath: m_Drag
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1053226641653800467, guid: 84db4db5fbe2b584b831b3ce213a552c,
         type: 3}
@@ -854,6 +859,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _defaultState
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053226641653800467, guid: 84db4db5fbe2b584b831b3ce213a552c,
+        type: 3}
+      propertyPath: m_Drag
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1053226641653800467, guid: 84db4db5fbe2b584b831b3ce213a552c,
         type: 3}
@@ -1632,6 +1642,7 @@ MonoBehaviour:
   _playerSpawnPoint: {fileID: 980785226}
   _playerUIPrefab: {fileID: 1742974783899504809, guid: d8bee51eada963041b07198215443212,
     type: 3}
+  _gameStatBehaviour: {fileID: 1985450664}
 --- !u!4 &1693336138
 Transform:
   m_ObjectHideFlags: 0
@@ -1645,6 +1656,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 980785226}
+  - {fileID: 1985450662}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1659,6 +1671,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _defaultState
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053226641653800467, guid: 84db4db5fbe2b584b831b3ce213a552c,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1053226641653800467, guid: 84db4db5fbe2b584b831b3ce213a552c,
         type: 3}
@@ -1755,6 +1772,63 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1053226640353855445}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1985450661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1985450662}
+  - component: {fileID: 1985450664}
+  - component: {fileID: 1985450663}
+  m_Layer: 0
+  m_Name: Game Statistic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1985450662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985450661}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1693336138}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1985450663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985450661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f6d54988661b3478273bc8f29b1811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1985450664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985450661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f825a732680dda469728d645e5aaf30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &487371908394533143
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1835,6 +1909,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _defaultState
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053226641653800467, guid: 84db4db5fbe2b584b831b3ce213a552c,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1053226641653800467, guid: 84db4db5fbe2b584b831b3ce213a552c,
         type: 3}

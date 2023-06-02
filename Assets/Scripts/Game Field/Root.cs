@@ -16,6 +16,7 @@ namespace RunShooter.GameProccess
         [SerializeField] private Transform _playerSpawnPoint;
 
         [SerializeField] private GameFieldUI _playerUIPrefab;
+        [SerializeField] private GameStatBehaviour _gameStatBehaviour;
 
         protected override void OnAwake()
         {
@@ -27,7 +28,16 @@ namespace RunShooter.GameProccess
             Player.GetComponent<PlayerController>().SetInput(playerInputSystem);
 
             var playerUI = Instantiate(_playerUIPrefab);
+            playerUI.Initialize(_gameStatBehaviour);
             playerInputSystem.Initialize(playerUI.ScreenInput);
+
+            StartCoroutine(StartGameRoutine());
+        }
+
+        private IEnumerator StartGameRoutine()
+        {
+            yield return new WaitForSeconds(1f);
+            EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_GAME_STARTED));
         }
     }
 }

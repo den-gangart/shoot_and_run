@@ -38,7 +38,13 @@ namespace RunShooter.Character
 
         protected override void CheckRotation()
         {
-            _playerMovement.Rotate(GetForwardToPlayer());
+            _characterMovement.Rotate(GetForwardToPlayer());
+        }
+
+        protected override void HandleDeath()
+        {
+            _navMeshAgent.isStopped = true;
+            base.HandleDeath();
         }
 
         private Vector2 GetForwardToPlayer()

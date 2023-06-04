@@ -12,19 +12,21 @@ namespace RunShooter.GameProccess
     {
         public PlayerObject Player { get; private set; }
 
-        [SerializeField] private PlayerObject _playerPrefab;
-        [SerializeField] private Transform _playerSpawnPoint;
+        [SerializeField] private Map _mapPrefab;
 
+        [SerializeField] private PlayerObject _playerPrefab;
         [SerializeField] private GameFieldUI _playerUIPrefab;
         [SerializeField] private GameStatBehaviour _gameStatBehaviour;
 
         protected override void OnAwake()
         {
+            Map map = Instantiate(_mapPrefab, Vector3.zero, Quaternion.identity);
+
             PlayerInputSystem playerInputSystem = new PlayerInputSystem();
 
             Player = Instantiate(_playerPrefab);
             Player.name = _playerPrefab.name;
-            Player.transform.position = _playerSpawnPoint.position;
+            Player.transform.position = map.spawnPoint.position;
             Player.GetComponent<PlayerController>().SetInput(playerInputSystem);
 
             var playerUI = Instantiate(_playerUIPrefab);

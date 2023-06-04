@@ -13,22 +13,21 @@ namespace RunShooter.Player
         public void SetTarget(CameraTarget target)
         {
             _target = target.transform;
-            SetCameraPosition(_target.position);
+            SetCameraPosition();
         }
 
         private void FixedUpdate()
         {
             if (_target != null)
             {
-                Vector3 nextPosition = Vector3.Lerp(transform.position, _target.position + _offset, _deltaTimeSpeed);
-                SetCameraPosition(nextPosition);
+                SetCameraPosition();
             }
         }
 
-        private void SetCameraPosition(Vector3 targetPos)
+        private void SetCameraPosition()
         {
-            targetPos.y = transform.position.y;
-            transform.position = targetPos;
+            Vector3 nextPosition = Vector3.Lerp(transform.position, _target.position + _offset, _deltaTimeSpeed);
+            transform.position = nextPosition;
         }
     }
 }

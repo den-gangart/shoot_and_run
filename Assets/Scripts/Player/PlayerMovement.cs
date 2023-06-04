@@ -20,11 +20,9 @@ namespace RunShooter.Player
 
         public void Move(Vector2 axis)
         {
-            Vector3 velocity = new Vector3(axis.x, _rigidbody.velocity.y, axis.y);
-            velocity = Vector3.ClampMagnitude(velocity, 1);
-            velocity *= _movementSpeed;
-
-            _rigidbody.velocity = velocity;      
+            Vector3 velocity = new Vector3(axis.x, 0, axis.y);
+            velocity = Vector3.ClampMagnitude(velocity, 1) * Time.fixedDeltaTime * _movementSpeed;
+            _rigidbody.MovePosition(transform.position + velocity);      
         }
 
         public void Rotate(Vector2 axis)

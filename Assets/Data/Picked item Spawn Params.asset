@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02993c8aed3268b438c9e2d1e306e988, type: 3}
+  m_Name: Picked item Spawn Params
+  m_EditorClassIdentifier: 
+  spawnTimeFrequency: 5
+  minDistanceToPlayer: 5
+  maxDistanceToPlayer: 20
+  _paramsList:
+  - item: {fileID: 6814700029959502655, guid: 737822f39bcb94d4eb2b5fcdb412b9d6, type: 3}
+    spawnChance: 50
+  - item: {fileID: 1917022696381101679, guid: 648fccb2fa67dff41b433a25ddc9ac18, type: 3}
+    spawnChance: 10

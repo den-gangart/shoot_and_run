@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 1053226641653800469}
   - component: {fileID: 1053226641653800466}
   - component: {fileID: 1053226641653800467}
+  - component: {fileID: 4164424563484474107}
   - component: {fileID: 1053226641653800464}
   - component: {fileID: 1053226641653800470}
   - component: {fileID: 1053226641653800471}
@@ -104,6 +105,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &4164424563484474107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053226641653800554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c251342bdd6c5d40b0b0ca5d12faa27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1053226641653800464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,8 +210,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.6
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 10
+  m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 0
   m_StoppingDistance: 1

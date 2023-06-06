@@ -14,17 +14,16 @@ namespace RunShooter.GameProccess
         [SerializeField] private List<Transform> _gunPivots;
         [SerializeField] private int _selectedGunId;
 
-        public void Initialize(int id)
-        {
-            _selectedGunId = id;
-        }
-
         protected override void OnStart()
         {
-            var gunPrefab = _gunData.getData(_selectedGunId).Prefab;
-            var gunObject = Instantiate(gunPrefab, _gunPivots[_selectedGunId]);
+            GunParameters selectedGun = _gunData.GetRandomGun();
+
+            var gunObject = Instantiate(selectedGun.Prefab, _gunPivots[selectedGun.id]);
+
             gunObject.transform.localPosition = Vector3.zero;
-            gunObject.transform.localRotation =  Quaternion.identity;
+            gunObject.transform.localRotation = Quaternion.identity;
+
+            _selectedGunId = selectedGun.id;
         }
 
         protected override void OnPick(Transform target)

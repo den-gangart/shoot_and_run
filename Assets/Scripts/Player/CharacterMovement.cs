@@ -6,7 +6,7 @@ using RunShooter.Character;
 namespace RunShooter.Player
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class PlayerMovement : MonoBehaviour, ICharacterMovement
+    public class CharacterMovement : MonoBehaviour, ICharacterMovement
     {
         [SerializeField] private float _movementSpeed;
         [SerializeField, Range(0, 1)] private float _rotationDeltaSpeed;

@@ -40,4 +40,12 @@ namespace RunShooter
         public GameFieldEvent(string name) : base(name) { }
         public GameFieldEvent(string name, object value) : base(name, value) { }
     }
+
+    public class UIEvent : BaseEvent
+    {
+        public const string ON_LOAD_SCREEN = "ON_LOAD_SCREEN";
+
+        public UIEvent(string name) : base(name) { }
+        public UIEvent(string name, object value) : base(name, value) { }
+    }
 }

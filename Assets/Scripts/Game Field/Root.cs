@@ -38,7 +38,7 @@ namespace RunShooter.GameProccess
 
         private IEnumerator StartGameRoutine()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_GAME_STARTED));
         }
     }

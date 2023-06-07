@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RunShooter.GameProccess
 {
-    public class BaseSpawnFactory : MonoBehaviour
+    public class BaseSpawnFactory : MonoBehaviour, IEventListener
     {
         private IEnumerator _activeSpawnRoutine;
         protected WaitForSeconds _waitDelay;

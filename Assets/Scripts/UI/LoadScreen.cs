@@ -16,8 +16,8 @@ namespace RunShooter.UI
 
         private CanvasGroup _canvasGroup;
 
-        private const float FADE_STEP = 0.01f;
-        private const float LOAD_STEP = 0.002f;
+        private const float FADE_STEP = 0.1f;
+        private const float LOAD_STEP = 0.01f;
         private const float LOAD_FINISH_AMOUNT = 1f;
         private const string TEXT_FORMAT = "{0}%";
 

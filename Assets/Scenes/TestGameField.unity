@@ -476,7 +476,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1.01
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1282,7 +1282,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1e69c0a17d07f164cae9122e3eccdf8c, type: 2}
+  - {fileID: 2100000, guid: 7d4b20ffdb6edab4fa06cb4c965dc4f8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1637,9 +1637,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPermanent: 0
+  _mapPrefab: {fileID: 0}
   _playerPrefab: {fileID: 8035595464941864442, guid: a83081150f1f722429538a5829ed9ec5,
     type: 3}
-  _playerSpawnPoint: {fileID: 980785226}
   _playerUIPrefab: {fileID: 1742974783899504809, guid: d8bee51eada963041b07198215443212,
     type: 3}
   _gameStatBehaviour: {fileID: 1985450664}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RunShooter
+namespace RunShooter.Data
 {
     [System.Serializable]
     public class SavableData

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e033b6749b784aa499f8b856e40c1d7a, type: 3}
+  m_Name: Body Sprites
+  m_EditorClassIdentifier: 
+  heads:
+  - {fileID: 21300000, guid: 9ad9c2c29664d4b489bde6a41627a8c3, type: 3}
+  - {fileID: 21300000, guid: e0d0b1fc176bb274ab68215c8f366e1b, type: 3}
+  - {fileID: 21300000, guid: a25f703cac37f2549a1f0fbb6a9b90f2, type: 3}
+  - {fileID: 21300000, guid: dc35ab1120c601146b8ce11074469244, type: 3}
+  - {fileID: 21300000, guid: 013d12d2939efca4cb91806cbac0a4ec, type: 3}
+  bodies:
+  - {fileID: 21300000, guid: ce9ee69a889774f47bb5d715a9a00ca0, type: 3}
+  - {fileID: 21300000, guid: c8f8d4a0420e582499a0a6553e2ad431, type: 3}
+  - {fileID: 21300000, guid: 3bfd87ffcef358b49abad813974b9664, type: 3}
+  - {fileID: 21300000, guid: 748e663514c325f47b5b2436f13f78f6, type: 3}
+  - {fileID: 21300000, guid: 75dbb7eed8a38df41a090836ce14ac10, type: 3}

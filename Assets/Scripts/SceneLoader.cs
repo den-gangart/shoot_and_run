@@ -16,7 +16,7 @@ namespace RunShooter
     public class SceneLoader : Singleton<SceneLoader>
     {
         private LoadScreen _loadScreen;
-        private const float LOAD_DELAY = 0.5f;
+        private const float LOAD_DELAY = 0.1f;
 
         private void Start()
         {

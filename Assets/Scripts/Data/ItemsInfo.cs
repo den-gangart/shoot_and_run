@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace RunShooter
 {
-    public class ItemsInfo : MonoBehaviour
+    [System.Serializable]
+    public class ItemsInfo
     {
-        public int selectedHeadIndex;
-        public int selectedBodyIndex;
+        public int selectedHeadIndex = 0;
+        public int selectedBodyIndex = 0;
     }
 }

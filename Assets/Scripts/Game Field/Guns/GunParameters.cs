@@ -17,7 +17,6 @@ namespace RunShooter.Guns
         [Header("Randomizing"), Range(0, 100)] public int spawnChance;
 
         [Header("View")]
-        public Texture2D Icon;
         public BaseGun Prefab;
         public CharacterAnimatorType AnimatorType;
     }

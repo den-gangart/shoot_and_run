@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace RunShooter.Data
 {
-    [CreateAssetMenu(fileName = "Body Sprites", menuName = "ScriptableObjects/CharacterBodySprites_ScriptableObject")]
-    public class CharacterBodyPartSprites : ScriptableObject
+    [CreateAssetMenu(fileName = "BodyPartData", menuName = "ScriptableObjects/BodyPartData")]
+    public class BodyPartData : ScriptableObjectDataSaver<ItemsInfo>
     {
         public List<Sprite> heads;
         public List<Sprite> bodies;

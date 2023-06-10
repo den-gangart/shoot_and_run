@@ -10,7 +10,7 @@ namespace RunShooter.Data
     {
         public T Value => _data;
         public event Action<T> Changed;
-        protected virtual string DATA_KEY { get; set; }
+        protected virtual string DATA_KEY { get; }
 
         [SerializeField] private T _data;
         [SerializeField] private string _jsonString;

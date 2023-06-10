@@ -371,7 +371,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1762018171671633974
 Transform:
   m_ObjectHideFlags: 0
@@ -4936,6 +4936,7 @@ GameObject:
   - component: {fileID: 1762018173025169342}
   - component: {fileID: 1762018173025169313}
   - component: {fileID: 9035405930885777637}
+  - component: {fileID: 3940484642324715246}
   m_Layer: 0
   m_Name: BasicMaleDefault
   m_TagString: Untagged
@@ -5033,6 +5034,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1762018173025169313}
   gunParent: {fileID: 1762018171814503567}
+--- !u!114 &3940484642324715246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762018173025169312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253a7092abb576944bbaadcb5a17c926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _headObjectList:
+  - {fileID: 1762018172372328690}
+  - {fileID: 1762018173168760637}
+  - {fileID: 1762018172884189953}
+  - {fileID: 1762018172486968458}
+  - {fileID: 1762018172954024825}
+  _bodyObjectList:
+  - {fileID: 1762018172079144265}
+  - {fileID: 1762018172300108201}
+  - {fileID: 1762018171671633977}
+  - {fileID: 1762018173019542566}
+  - {fileID: 1762018173097986744}
+  _bodyPartData: {fileID: 11400000, guid: 8c32f8b24aef0614eaaea8599d81db20, type: 2}
 --- !u!1 &1762018173044623599
 GameObject:
   m_ObjectHideFlags: 0

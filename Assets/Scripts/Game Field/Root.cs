@@ -18,28 +18,34 @@ namespace RunShooter.GameProccess
         [SerializeField] private GameFieldUI _playerUIPrefab;
         [SerializeField] private GameStatBehaviour _gameStatBehaviour;
 
+        private GameProccessManager _gameManager;
+
         protected override void OnAwake()
         {
             Map map = Instantiate(_mapPrefab, Vector3.zero, Quaternion.identity);
 
-            PlayerInputSystem playerInputSystem = new PlayerInputSystem();
-
-            Player = Instantiate(_playerPrefab);
-            Player.name = _playerPrefab.name;
-            Player.transform.position = map.spawnPoint.position;
-            Player.GetComponent<PlayerController>().SetInput(playerInputSystem);
+            _gameManager = new GameProccessManager();
 
             var playerUI = Instantiate(_playerUIPrefab);
-            playerUI.Initialize(_gameStatBehaviour);
+            playerUI.Initialize(_gameStatBehaviour, _gameManager);
+
+            PlayerInputSystem playerInputSystem = new PlayerInputSystem();
             playerInputSystem.Initialize(playerUI.ScreenInput);
 
-            StartCoroutine(StartGameRoutine());
+            SpawnPlayer(playerInputSystem, map.spawnPoint.position);
         }
 
-        private IEnumerator StartGameRoutine()
+        private void SpawnPlayer(PlayerInputSystem playerInputSystem, Vector3 spawnPosition)
         {
-            yield return new WaitForSeconds(2f);
-            EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_GAME_STARTED));
+            Player = Instantiate(_playerPrefab);
+            Player.name = _playerPrefab.name;
+            Player.transform.position = spawnPosition;
+            Player.GetComponent<PlayerController>().SetInput(playerInputSystem);
+        }
+
+        private void OnDestroy()
+        {
+            _gameManager.Dispose();
         }
     }
 }

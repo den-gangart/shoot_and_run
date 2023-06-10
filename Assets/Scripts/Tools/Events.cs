@@ -44,6 +44,7 @@ namespace RunShooter
     public class UIEvent : BaseEvent
     {
         public const string ON_LOAD_SCREEN = "ON_LOAD_SCREEN";
+        public const string ON_PAUSE_BUTTON_PRESSED = "ON_PAUSE_BUTTON_PRESSED";
 
         public UIEvent(string name) : base(name) { }
         public UIEvent(string name, object value) : base(name, value) { }

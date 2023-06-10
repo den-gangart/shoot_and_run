@@ -33,7 +33,7 @@ namespace RunShooter
         {
             _loadScreen.Show();
 
-            yield return new WaitForSeconds(LOAD_DELAY);
+            yield return new WaitForSecondsRealtime(LOAD_DELAY);
 
             SceneManager.LoadSceneAsync((int)sceneIndex);
         }

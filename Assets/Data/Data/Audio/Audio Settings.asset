@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c071b9cb2daa23f4f9fd9996bbf41191, type: 3}
+  m_Name: Audio Settings
+  m_EditorClassIdentifier: 
+  _audioList:
+  - _assetName: 
+    _clip: {fileID: 0}
+    _mixerGroup: {fileID: 0}
+    _volume: 0
+    _loop: 0
+    _pitch: 0
+    _stereoPan: 0
+    _spatialBlend: 0
+    _reverbZoneMix: 0
+  - _assetName: 
+    _clip: {fileID: 0}
+    _mixerGroup: {fileID: 0}
+    _volume: 0
+    _loop: 0
+    _pitch: 0
+    _stereoPan: 0
+    _spatialBlend: 0
+    _reverbZoneMix: 0
+  _mixerGroupList:
+  - _audioMixer: {fileID: 24100000, guid: 5eae8da3e79bf2b49bc2e9174066478e, type: 2}
+    _parameterName: Master_Volume
+    _volume: 1
+  - _audioMixer: {fileID: 24100000, guid: 5eae8da3e79bf2b49bc2e9174066478e, type: 2}
+    _parameterName: Music_Volume
+    _volume: 0.6
+  - _audioMixer: {fileID: 24100000, guid: 5eae8da3e79bf2b49bc2e9174066478e, type: 2}
+    _parameterName: FX_Volume
+    _volume: 1

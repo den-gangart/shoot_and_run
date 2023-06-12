@@ -28,6 +28,7 @@ namespace RunShooter.Data
         public void UpdateData()
         {
             Changed?.Invoke(_data);
+            Save();
         }
 
         private void Save()

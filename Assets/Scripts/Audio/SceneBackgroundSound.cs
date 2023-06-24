@@ -15,39 +15,43 @@ namespace RunShooter
 
         private void Start()
         {
-            SetCurrentSceneSettings(SceneManager.GetActiveScene().name);
-            PlayCurrentSound();
+            // SetCurrentSceneSettings(SceneManager.GetActiveScene().name);
+            // PlayCurrentSound();
         }
 
         private void OnEnable()
         {
-            EventSystem.AddEventListener<GameFieldEvent>(OnEventRecivied);
-            EventSystem.AddEventListener<SoundEvent>(OnEventRecivied);
+            EventSystem.AddEventListener<GameFieldEvent>(OnGameFieldEvent);
+            EventSystem.AddEventListener<SoundEvent>(OnSoundEvent);
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
         private void OnDisable()
         {
-            EventSystem.RemoveEventListener<GameFieldEvent>(OnEventRecivied);
-            EventSystem.RemoveEventListener<SoundEvent>(OnEventRecivied);
+            EventSystem.RemoveEventListener<GameFieldEvent>(OnGameFieldEvent);
+            EventSystem.RemoveEventListener<SoundEvent>(OnSoundEvent);
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
-        private void OnEventRecivied(BaseEvent baseEvent) 
+        private void OnGameFieldEvent(GameFieldEvent gameFieldEvent) 
         {
-            if(baseEvent.Name == GameFieldEvent.ON_GAME_PAUSE)
+            if(gameFieldEvent.Name == GameFieldEvent.ON_GAME_PAUSE)
             {
                 OnGamePaused();
             }
-            else if (baseEvent.Name == GameFieldEvent.ON_GAME_RESUME)
+            else if (gameFieldEvent.Name == GameFieldEvent.ON_GAME_RESUME)
             {
                 OnGameResumed();
             }
-            else if (baseEvent.Name == SoundEvent.ON_STOP_BG_MUSIC)
+        }
+
+        private void OnSoundEvent(SoundEvent soundEvent)
+        {
+            if (soundEvent.Name == SoundEvent.ON_STOP_BG_MUSIC)
             {
                 OnStop();
             }
-            else if (baseEvent.Name == SoundEvent.ON_PLAY_BG_MUSIC)
+            else if (soundEvent.Name == SoundEvent.ON_PLAY_BG_MUSIC)
             {
                 OnPlay();
             }

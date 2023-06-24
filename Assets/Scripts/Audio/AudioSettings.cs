@@ -1,45 +1,48 @@
 using System.Collections.Generic;
 using UnityEngine;
+using RunShooter.Data;
+using UnityEngine.Audio;
 
 namespace RunShooter
 {
     [CreateAssetMenu(fileName = "Audio Settings", menuName = "ScriptableObjects/AudioSettings")]
-    public class AudioSettings : ScriptableObject
+    public class AudioSettings : ScriptableObjectDataSaver<MixerVolumeList>
     {
+        protected override string DATA_KEY => "MixerVolumeList";
+
+        [SerializeField] private List<AudioMixerInfo> _mixerList;
         [SerializeField] private List<AudioComponent> _audioList;
-        [SerializeField] private List<MixerGroupComponent> _mixerGroupList;
 
         public void SynchronizeMixerGroups()
         {
-            foreach (MixerGroupComponent _mixerComponent in _mixerGroupList)
+            for(int i = 0; i< _mixerList.Count; i++)
             {
-                _mixerComponent.Synchronize();
+                _mixerList[i].SetVolume(Value.volumeList[i]);
             }
         }
 
         public Dictionary<string, AudioComponent> GetAudioDictionary()
         {
-            Dictionary<string, AudioComponent> _audioDictionary = new Dictionary<string, AudioComponent>();
+            Dictionary<string, AudioComponent> audioDictionary = new Dictionary<string, AudioComponent>();
 
             foreach (AudioComponent audioComponent in _audioList)
             {
-                _audioDictionary.Add(audioComponent.GetAssetName(), audioComponent);
+                audioDictionary.Add(audioComponent.GetAssetName(), audioComponent);
             }
 
-            return _audioDictionary;
+            return audioDictionary;
         }
 
-        public void UpdateMixerVolume(List<float> volumeAmount)
+        protected override void OnDataUpdated()
         {
-            for (int i = 0; i < volumeAmount.Count && i < _mixerGroupList.Count; i++)
-            {
-                _mixerGroupList[i].UpdateVolume(volumeAmount[i]);
-            }
+            SynchronizeMixerGroups();
         }
+    }
 
-        public float GetMixerParameterAmount(int index)
-        {
-            return _mixerGroupList[index].GetVolume();
-        }
+    public enum MixerType
+    {
+        Master,
+        Music,
+        FX,
     }
 }

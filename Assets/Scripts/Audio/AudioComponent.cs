@@ -7,14 +7,13 @@ namespace RunShooter
     public class AudioComponent
     {
         [Header("Main Info")]
-        [SerializeField] private string _assetName;
         [SerializeField] private AudioClip _clip;
         [SerializeField] private AudioMixerGroup _mixerGroup;
 
         [Header("Parameters")]
         [SerializeField, Range(0, 1)] private float _volume = 1f;
         [SerializeField] private bool _loop = false;
-        [SerializeField, Range(-3, 3)] private float _pitch = 0f;
+        [SerializeField, Range(-3, 3)] private float _pitch = 1f;
         [SerializeField, Range(-1, 1)] private float _stereoPan = 0f;
         [SerializeField, Range(0, 1)] private float _spatialBlend = 0f;
         [SerializeField, Range(0, 1.1f)] private float _reverbZoneMix = 1f;
@@ -33,7 +32,7 @@ namespace RunShooter
 
         public string GetAssetName()
         {
-            return _assetName;
+            return _clip.name;
         }
     }
 }

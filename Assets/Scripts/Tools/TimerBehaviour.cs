@@ -7,17 +7,21 @@ namespace RunShooter
 {
     public class TimerBehaviour : MonoBehaviour
     {
-        public string FormattedTime  => TimeSpan.FromSeconds(_elapsedTime).ToString(TIME_FORMAT);
-        public bool IsPlaying => _isPlaying;
+        public event Action<float> OnTick;
 
-        private const string TIME_FORMAT = @"mm\:ss";
-        private double _elapsedTime = 0;
+        public bool IsPlaying => _isPlaying;
+        public float ElapsedTime => _elapsedTime;
+
+        private float _elapsedTime = 0;
+        private float _prevTimeTick = 0;
+
         private bool _isPlaying = false;
         
         public void StartTimer()
         {
             _isPlaying = true;
             _elapsedTime = 0;
+            _prevTimeTick = 0;
         }
 
         public void StopTimer()
@@ -27,9 +31,15 @@ namespace RunShooter
 
         private void Update()
         {
-            if(_isPlaying)
+            if (!_isPlaying) return;
+
+
+            _elapsedTime += Time.deltaTime;
+
+            if (_elapsedTime - _prevTimeTick >= 1)
             {
-                _elapsedTime += Time.deltaTime;
+                OnTick?.Invoke(_elapsedTime);
+                _prevTimeTick = _elapsedTime;
             }
         }
     }

@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minFXTime: 0.1
   _fxObject: {fileID: 1645947208441285028}
+  _soundName: Minigun_Shoot
 --- !u!1 &2196376887939949477
 GameObject:
   m_ObjectHideFlags: 0

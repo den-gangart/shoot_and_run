@@ -9,7 +9,7 @@ namespace RunShooter
 {
     public class GameProccessManager: IDisposable
     {
-        private int START_DELAY = 2000;
+        private int START_DELAY = 4000;
         private int FINISH_DELAY = 2000;
 
         private const int PAUSE_TIME_SCALE = 0;
@@ -44,16 +44,19 @@ namespace RunShooter
         {
             await Task.Delay(FINISH_DELAY);
             EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_GAME_FINISHED));
+            EventSystem.Broadcast(new SoundEvent(SoundEvent.ON_STOP_BG_MUSIC));
         }
 
         public void PauseGame()
         {
             Time.timeScale = PAUSE_TIME_SCALE;
+            EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_GAME_PAUSE));
         }
 
         public void ResumeGame()
         {
             Time.timeScale = PLAY_TIME_SCALE;
+            EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_GAME_RESUME));
         }
 
         public void RestartGame()

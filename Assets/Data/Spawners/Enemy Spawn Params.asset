@@ -15,8 +15,8 @@ MonoBehaviour:
   enemyPrefabs: {fileID: 4164424563484474107, guid: 84db4db5fbe2b584b831b3ce213a552c,
     type: 3}
   intitialCount: 2
-  incrementCount: 2
+  incrementCount: 1
   spawnDelay: 0.1
-  waveDelay: 30
+  waveDelay: 15
   minDistanceToPlayer: 20
   maxDistanceToPlayer: 30

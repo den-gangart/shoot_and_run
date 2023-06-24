@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minFXTime: 0.2
   _fxObject: {fileID: 4707723188098659084}
+  _soundName: Regular_Shoot
 --- !u!114 &329038325766146538
 MonoBehaviour:
   m_ObjectHideFlags: 0

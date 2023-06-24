@@ -4,19 +4,22 @@ using UnityEngine;
 using RunShooter;
 using TMPro;
 using RunShooter.UI;
+using System;
 
 namespace RunShooter.GameProccess
 {
     [RequireComponent(typeof(TimerBehaviour))]
     public class GameStatBehaviour : MonoBehaviour, IEventListener
     {
+        public event Action<int> OnKill;
+
         public TimerBehaviour Timer => _timerBehaviour;
         public int KilledCount => _killedCount;
 
         private TimerBehaviour _timerBehaviour;
         private int _killedCount = 0;
 
-        private void Start()
+        private void Awake()
         {
             _timerBehaviour = GetComponent<TimerBehaviour>();
         }
@@ -60,6 +63,7 @@ namespace RunShooter.GameProccess
         private void OnEnemyDead()
         {
             _killedCount++;
+            OnKill?.Invoke(_killedCount);
         }
     }
 }

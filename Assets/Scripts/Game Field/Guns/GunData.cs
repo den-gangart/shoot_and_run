@@ -13,11 +13,21 @@ namespace RunShooter.Guns
 
         private int _totalChanceWeights;
 
+        private void Awake()
+        {
+            CalculateTotalChanceWeights();
+        }
+
         private void OnValidate()
+        {
+            CalculateTotalChanceWeights();
+        }
+
+        private void CalculateTotalChanceWeights()
         {
             _totalChanceWeights = 0;
 
-            foreach(var gun in _gunInfoList)
+            foreach (var gun in _gunInfoList)
             {
                 _totalChanceWeights += gun.spawnChance;
             }

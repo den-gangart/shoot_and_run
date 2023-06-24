@@ -28,8 +28,11 @@ namespace RunShooter.Data
         public void UpdateData()
         {
             Changed?.Invoke(_data);
+            OnDataUpdated();
             Save();
         }
+
+        protected virtual void OnDataUpdated() { }
 
         private void Save()
         {

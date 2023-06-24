@@ -20,7 +20,7 @@ namespace RunShooter.GameProccess
 
         private GameProccessManager _gameManager;
 
-        protected override void OnAwake()
+        private void Start()
         {
             Map map = Instantiate(_mapPrefab, Vector3.zero, Quaternion.identity);
 

@@ -19,4 +19,4 @@ MonoBehaviour:
   - item: {fileID: 6814700029959502655, guid: 737822f39bcb94d4eb2b5fcdb412b9d6, type: 3}
     spawnChance: 50
   - item: {fileID: 1917022696381101679, guid: 648fccb2fa67dff41b433a25ddc9ac18, type: 3}
-    spawnChance: 10
+    spawnChance: 50

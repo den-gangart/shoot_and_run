@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Ukrainian (uk)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Ukrainian (uk)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: dc5764d74f4a4424aa1b9a69bdf0bbd5
+  m_SerializeEntries:
+  - m_GUID: ca50a09402afe4058a4d3267095049d2
+    m_Address: Icon_LanguageFlag_Large_Ukr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-uk
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 37c1fdd546a52d34ea1055e832df3212, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 30329fc84a9b115468bf479cb65b5619, type: 2}
+    - {fileID: 11400000, guid: 23a6e64cadd0f5347a99881a1e2b0f87, type: 2}

@@ -15,9 +15,9 @@ MonoBehaviour:
   _data:
     volumeList:
     - 1
-    - 0.44640788
-    - 0.7118201
-  _jsonString: '{"volumeList":[1.0,0.44640788435935976,0.711820125579834]}'
+    - 0.217
+    - 0.719
+  _jsonString: '{"volumeList":[1.0,0.21699999272823335,0.718999981880188]}'
   _mixerList:
   - _mixer: {fileID: 24100000, guid: 5eae8da3e79bf2b49bc2e9174066478e, type: 2}
     _paramName: Master_Volume

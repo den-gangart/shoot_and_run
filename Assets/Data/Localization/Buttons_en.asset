@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Buttons_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: e3516157dc98c0a4a9f159ce0c2da94e, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 10457710592
+    m_Localized: Items
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101927092224
+    m_Localized: Map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133724110848
+    m_Localized: Battle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 226900574208
+    m_Localized: Rate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371578896384
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 461982924800
+    m_Localized: Sound Fx
+    m_Metadata:
+      m_Items: []
+  - m_Id: 574247665664
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 622536687616
+    m_Localized: Vibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 698386481152
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 738895069184
+    m_Localized: Head
+    m_Metadata:
+      m_Items: []
+  - m_Id: 878141767680
+    m_Localized: Body
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1108597800960
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1115962998784
+    m_Localized: ReStart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1117233872896
+    m_Localized: Give Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1118311809024
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1424026238976
+    m_Localized: WELL PLAYED!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1426907725824
+    m_Localized: 'Your time:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1427683672064
+    m_Localized: Try Again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1428400898048
+    m_Localized: Back to Menu
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

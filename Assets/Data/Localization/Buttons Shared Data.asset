@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Buttons Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Buttons
+  m_TableCollectionNameGuidString: e3516157dc98c0a4a9f159ce0c2da94e
+  m_Entries:
+  - m_Id: 10457710592
+    m_Key: Items
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101927092224
+    m_Key: Map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 133724110848
+    m_Key: Battle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 226900574208
+    m_Key: Rate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371578896384
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 461982924800
+    m_Key: Sound_FX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 574247665664
+    m_Key: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 622536687616
+    m_Key: Vibration
+    m_Metadata:
+      m_Items: []
+  - m_Id: 698386481152
+    m_Key: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 738895069184
+    m_Key: Head
+    m_Metadata:
+      m_Items: []
+  - m_Id: 878141767680
+    m_Key: Body
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1108597800960
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1115962998784
+    m_Key: ReStart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1117233872896
+    m_Key: Give Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1118311809024
+    m_Key: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1424026238976
+    m_Key: WELL PLAYED!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1426907725824
+    m_Key: 'Your time:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1427683672064
+    m_Key: Try Again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1428400898048
+    m_Key: Back to Menu
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6540443281409703960
+  references:
+    version: 2
+    RefIds:
+    - rid: 6540443281409703960
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1687637420155

@@ -51,6 +51,8 @@ namespace RunShooter.UI
 
         private IEnumerator FadeIn()
         {
+            _canvasGroup.blocksRaycasts = true;
+
             do
             {
                 _canvasGroup.alpha += FADE_STEP;
@@ -67,6 +69,8 @@ namespace RunShooter.UI
                 yield return null;
 
             } while (_canvasGroup.alpha > 0);
+
+            _canvasGroup.blocksRaycasts = false;
         }
 
         public void SetLoadFields(float value)

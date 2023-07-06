@@ -8,28 +8,21 @@ namespace RunShooter
         [SerializeField] private AudioSettings _audioSettings;
         [SerializeField] private ObjectPool _pool;
 
-        private Dictionary<string, AudioComponent> _audioComponentsByNames;
         private Dictionary<string, List<AudioSourceHandler>> _playingSoundsByNames;
 
         override protected void OnAwake()
         {
+            _audioSettings.CreateAudioDictionary();
             _audioSettings.SynchronizeMixerGroups();
-            _audioComponentsByNames = _audioSettings.GetAudioDictionary();
             _playingSoundsByNames = new Dictionary<string, List<AudioSourceHandler>>();
-        }
-
-        private void Start()
-        {
-            _audioSettings.SynchronizeMixerGroups();
         }
 
         public AudioSourceHandler PlayGameSound(string soundName, GameObject sender)
         {
-            AudioComponent audioComponent = _audioComponentsByNames[soundName];
+            AudioComponent audioComponent = _audioSettings.GetAudioComponent(soundName);
             AudioSourceHandler source = _pool.GetPooledObject<AudioSourceHandler>();
             source.transform.position = sender.transform.position;
             source.Initialize(audioComponent);
-
             SavePlayingSource(source, soundName);
             return source;
         }

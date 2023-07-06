@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTime: 5
+  _sound: Item_Pick_Up
   _healthAddAmount: 20
 --- !u!1001 &6814700028753275102
 PrefabInstance:

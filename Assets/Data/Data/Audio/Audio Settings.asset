@@ -15,9 +15,9 @@ MonoBehaviour:
   _data:
     volumeList:
     - 1
-    - 0.217
-    - 0.719
-  _jsonString: '{"volumeList":[1.0,0.21699999272823335,0.718999981880188]}'
+    - 0.6172843
+    - 0.7520244
+  _jsonString: '{"volumeList":[1.0,0.6172842979431152,0.7520244121551514]}'
   _mixerList:
   - _mixer: {fileID: 24100000, guid: 5eae8da3e79bf2b49bc2e9174066478e, type: 2}
     _paramName: Master_Volume
@@ -80,7 +80,43 @@ MonoBehaviour:
     _stereoPan: 0
     _spatialBlend: 0
     _reverbZoneMix: 0
+  - _clip: {fileID: 8300000, guid: 0648510b3f9402f41b90bdbe15275848, type: 3}
+    _mixerGroup: {fileID: 5716213638324753391, guid: 5eae8da3e79bf2b49bc2e9174066478e,
+      type: 2}
+    _volume: 1
+    _loop: 0
+    _pitch: 1
+    _stereoPan: 0
+    _spatialBlend: 0
+    _reverbZoneMix: 0
+  - _clip: {fileID: 8300000, guid: 20254cb486c1e9e489b9284a0766b2cb, type: 3}
+    _mixerGroup: {fileID: 5716213638324753391, guid: 5eae8da3e79bf2b49bc2e9174066478e,
+      type: 2}
+    _volume: 1
+    _loop: 0
+    _pitch: 1
+    _stereoPan: 0
+    _spatialBlend: 0
+    _reverbZoneMix: 0
+  - _clip: {fileID: 8300000, guid: f5936b7e6ae2cd0498400ae61b7ef5f3, type: 3}
+    _mixerGroup: {fileID: 5716213638324753391, guid: 5eae8da3e79bf2b49bc2e9174066478e,
+      type: 2}
+    _volume: 1
+    _loop: 0
+    _pitch: 1
+    _stereoPan: 0
+    _spatialBlend: 0
+    _reverbZoneMix: 0
   - _clip: {fileID: 8300000, guid: af0d51584ad4c614bae6ed5444cc7aac, type: 3}
+    _mixerGroup: {fileID: 5716213638324753391, guid: 5eae8da3e79bf2b49bc2e9174066478e,
+      type: 2}
+    _volume: 1
+    _loop: 0
+    _pitch: 1
+    _stereoPan: 0
+    _spatialBlend: 0
+    _reverbZoneMix: 0
+  - _clip: {fileID: 8300000, guid: b37e935a0074ecc44a7e48eb9b794421, type: 3}
     _mixerGroup: {fileID: 5716213638324753391, guid: 5eae8da3e79bf2b49bc2e9174066478e,
       type: 2}
     _volume: 1

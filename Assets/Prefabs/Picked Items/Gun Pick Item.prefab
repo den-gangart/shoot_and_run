@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeTime: 5
+  _sound: Item_Pick_Up
   _gunData: {fileID: 11400000, guid: 6bebb8bf6c7a7e5498a45937732700f7, type: 2}
   _gunPivots:
   - {fileID: 1917022695897904482}

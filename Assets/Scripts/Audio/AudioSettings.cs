@@ -12,6 +12,7 @@ namespace RunShooter
 
         [SerializeField] private List<AudioMixerInfo> _mixerList;
         [SerializeField] private List<AudioComponent> _audioList;
+        private Dictionary<string, AudioComponent> _audioComponentsByNames;
 
         public void SynchronizeMixerGroups()
         {
@@ -21,21 +22,35 @@ namespace RunShooter
             }
         }
 
-        public Dictionary<string, AudioComponent> GetAudioDictionary()
+        public void CreateAudioDictionary()
         {
-            Dictionary<string, AudioComponent> audioDictionary = new Dictionary<string, AudioComponent>();
+            _audioComponentsByNames = new Dictionary<string, AudioComponent>();
 
             foreach (AudioComponent audioComponent in _audioList)
             {
-                audioDictionary.Add(audioComponent.GetAssetName(), audioComponent);
+                _audioComponentsByNames.Add(audioComponent.GetAssetName(), audioComponent);
             }
+        }
 
-            return audioDictionary;
+        public AudioComponent GetAudioComponent(string name)
+        {
+            return _audioComponentsByNames[name];
         }
 
         protected override void OnDataUpdated()
         {
             SynchronizeMixerGroups();
+        }
+
+        protected override void SetInitialData()
+        {
+            _data = new MixerVolumeList();
+            _data.volumeList = new List<float>();
+
+            for (int i = 0; i < _mixerList.Count; i++)
+            {
+                _data.volumeList.Add(1f);
+            }
         }
     }
 

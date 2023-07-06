@@ -12,7 +12,7 @@ namespace RunShooter.Data
         public event Action<T> Changed;
         protected virtual string DATA_KEY { get; }
 
-        [SerializeField] private T _data;
+        [SerializeField] protected T _data;
         [SerializeField] private string _jsonString;
 
         private void Awake()
@@ -54,7 +54,7 @@ namespace RunShooter.Data
             _data = JsonUtility.FromJson<T>(_jsonString);
         }
 
-        private void SetInitialData()
+        protected virtual void SetInitialData()
         {
             _data = new T();
         }

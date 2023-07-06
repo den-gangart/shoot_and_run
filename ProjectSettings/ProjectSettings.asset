@@ -135,7 +135,8 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 11400000, guid: 52aae8892afb65546abb9dfe222e89e4, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -251,7 +252,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: PublishingKey.keystore'
+  AndroidKeystoreName: '{inproject}: user.keystore'
   AndroidKeyaliasName: shoot_and_run
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

@@ -10,6 +10,7 @@ namespace RunShooter.GameProccess
     public class BasePickedItem : MonoBehaviour
     {
         [SerializeField] private float _lifeTime;
+        [SerializeField] private string _sound;
         private Animator _animator;
         private WaitForSeconds _waitForDestroy;
 
@@ -31,7 +32,7 @@ namespace RunShooter.GameProccess
             if(other.TryGetComponent(out PlayerObject playerObject))
             {
                 OnPick(playerObject.transform);
-
+                AudioHandler.Instance.PlayGameSound(_sound, gameObject);
                 _animator.SetTrigger(animTriggerPickUp);
             }
         }

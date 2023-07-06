@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Localization;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;

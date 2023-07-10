@@ -1,3 +1,4 @@
+using RunShooter.Player;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
@@ -10,13 +11,13 @@ namespace RunShooter.GameProccess
     {
         [SerializeField] private EnemySpawnParams _spawnParams;
 
-        private Transform _player;
+        private PlayerObject _player;
         private WaitForSeconds _enemySpawnDelay;
         private int _waveCount = 0;
 
-        private void Start()
+        public void Init(PlayerObject player)
         {
-            _player = Root.Instance.Player.transform;
+            _player = player;
             _waitDelay = new WaitForSeconds(_spawnParams.waveDelay);
             _enemySpawnDelay = new WaitForSeconds(_spawnParams.spawnDelay);
         }
@@ -33,7 +34,8 @@ namespace RunShooter.GameProccess
 
             for(int i = 0; i < currentEnemyCount; i++)
             {
-                Instantiate(_spawnParams.enemyPrefabs, GetSpawnPosition(), Quaternion.identity);
+                var enemy = Instantiate(_spawnParams.enemyPrefab, GetSpawnPosition(), Quaternion.identity);
+                enemy.Init(_player);
 
                 yield return _enemySpawnDelay;
             }
@@ -43,7 +45,7 @@ namespace RunShooter.GameProccess
         {
             float spawnRadius = Random.Range(_spawnParams.minDistanceToPlayer,_spawnParams.maxDistanceToPlayer);
             Vector2 randomCircleDot = Random.insideUnitCircle * spawnRadius;
-            Vector3 position = new Vector3(randomCircleDot.x, 0, randomCircleDot.y) + _player.position;
+            Vector3 position = new Vector3(randomCircleDot.x, 0, randomCircleDot.y) + _player.transform.position;
 
             NavMeshHit hit;
             NavMesh.SamplePosition(position, out hit, _spawnParams.minDistanceToPlayer, 1);

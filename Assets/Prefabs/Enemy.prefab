@@ -44,12 +44,11 @@ GameObject:
   - component: {fileID: 1053226641653800466}
   - component: {fileID: 1053226641653800467}
   - component: {fileID: 4164424563484474107}
-  - component: {fileID: 1053226641653800464}
   - component: {fileID: 1053226641653800470}
   - component: {fileID: 1053226641653800471}
   - component: {fileID: 1053226641653800468}
-  - component: {fileID: 5097735783801408147}
   - component: {fileID: 4963373562092022199}
+  - component: {fileID: 5097735783801408147}
   - component: {fileID: 1316295139472979280}
   m_Layer: 0
   m_Name: Enemy
@@ -117,21 +116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c251342bdd6c5d40b0b0ca5d12faa27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1053226641653800464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053226641653800554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c636ff2184be70478ae3ee70f930d6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _defaultState: 0
-  _characterType: 1
-  _healthMaxValue: 100
 --- !u!114 &1053226641653800470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +159,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunData: {fileID: 11400000, guid: 6bebb8bf6c7a7e5498a45937732700f7, type: 2}
   _aimStartPoint: {fileID: 8901787884697213915}
+--- !u!114 &4963373562092022199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053226641653800554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f16fa0d262f81143808bd5e63eef0d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultState: 0
+  _characterType: 1
+  _healthMaxValue: 100
 --- !u!114 &5097735783801408147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,18 +187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunid: 5
---- !u!114 &4963373562092022199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053226641653800554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f16fa0d262f81143808bd5e63eef0d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &1316295139472979280
 NavMeshAgent:
   m_ObjectHideFlags: 0

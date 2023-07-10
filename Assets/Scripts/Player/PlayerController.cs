@@ -10,9 +10,11 @@ namespace RunShooter.Player
     {
         private PlayerInputSystem _inputSystem;
 
-        public void SetInput(PlayerInputSystem inputSystem)
+        public void Init(PlayerInputSystem inputSystem)
         {
             _inputSystem = inputSystem;
+
+            base.Init();
         }
 
         protected override void CheckMovement()
@@ -33,6 +35,11 @@ namespace RunShooter.Player
             { 
                 _characterMovement.Rotate(fireAxis);
             }
+        }
+
+        protected override void OnDead()
+        {
+            EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_PLAYER_DEAD));
         }
     }
 }

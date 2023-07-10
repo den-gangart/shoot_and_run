@@ -30,7 +30,7 @@ namespace RunShooter.UI
         private readonly int _animBack = Animator.StringToHash("Back");
         private const string TIME_FORMAT = @"mm\:ss";
 
-        public void Initialize(GameStatBehaviour gameStat, GameProccessManager gameManager)
+        public void Initialize(GameStatBehaviour gameStat, GameProccessManager gameManager, PlayerObject player)
         {
             _gameStat = gameStat;
             _gameManager = gameManager;
@@ -38,6 +38,8 @@ namespace RunShooter.UI
 
             _gameStat.OnKill += OnKill;
             _gameStat.Timer.OnTick += OnTick;
+
+            _healthView.Init(player);
 
             EventSystem.AddEventListener<GameFieldEvent>(OnEventRecivied);
         }

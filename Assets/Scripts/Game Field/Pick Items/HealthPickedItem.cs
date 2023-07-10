@@ -11,7 +11,7 @@ namespace RunShooter.GameProccess
 
         protected override void OnPick(Transform target)
         {
-            target.GetComponent<CharacterBehaviour>().Health.Add(_healthAddAmount);
+            target.GetComponent<DefaultCharacterController>().Health.Add(_healthAddAmount);
         }
     }
 }

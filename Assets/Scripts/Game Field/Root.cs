@@ -10,12 +10,14 @@ namespace RunShooter.GameProccess
 {
     public class Root : Singleton<Root>
     {
-        public PlayerObject Player { get; private set; }
+        [SerializeField] private EnemySpawnBehaviour _enemySpawner;
+        [SerializeField] private PickItemSpawnBehaviour _pickItemsSpawner;
+
 
         [SerializeField] private Map _mapPrefab;
-
         [SerializeField] private PlayerObject _playerPrefab;
         [SerializeField] private GameFieldUI _playerUIPrefab;
+        [SerializeField] private ScreenInput _screenInputPrefab;
         [SerializeField] private GameStatBehaviour _gameStatBehaviour;
 
         private GameProccessManager _gameManager;
@@ -26,21 +28,29 @@ namespace RunShooter.GameProccess
 
             _gameManager = new GameProccessManager();
 
+            var screenInput = Instantiate(_screenInputPrefab);
+            var player = SpawnPlayer(screenInput, map.spawnPoint.position);
+
             var playerUI = Instantiate(_playerUIPrefab);
-            playerUI.Initialize(_gameStatBehaviour, _gameManager);
+            playerUI.Initialize(_gameStatBehaviour, _gameManager, player);
 
-            PlayerInputSystem playerInputSystem = new PlayerInputSystem();
-            playerInputSystem.Initialize(playerUI.ScreenInput);
-
-            SpawnPlayer(playerInputSystem, map.spawnPoint.position);
+            _enemySpawner.Init(player);
+            _pickItemsSpawner.Init(player);
         }
 
-        private void SpawnPlayer(PlayerInputSystem playerInputSystem, Vector3 spawnPosition)
+        private PlayerObject SpawnPlayer(ScreenInput screenInput, Vector3 spawnPosition)
         {
-            Player = Instantiate(_playerPrefab);
-            Player.name = _playerPrefab.name;
-            Player.transform.position = spawnPosition;
-            Player.GetComponent<PlayerController>().SetInput(playerInputSystem);
+            PlayerInputSystem playerInputSystem = new PlayerInputSystem();
+            playerInputSystem.Initialize(screenInput);
+
+            PlayerObject player = Instantiate(_playerPrefab);
+            player.name = _playerPrefab.name;
+            player.transform.position = spawnPosition;
+
+            var playerController = player.GetComponent<PlayerController>();
+            playerController.Init(playerInputSystem);
+
+            return player;
         }
 
         private void OnDestroy()

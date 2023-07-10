@@ -14,7 +14,7 @@ namespace RunShooter.Guns
         public float coolDown;
         public float maxDistance;
 
-        [Header("Randomizing"), Range(0, 100)] public int spawnChance;
+        [Header("Randomizing"), Range(-1, 100)] public int spawnChance;
 
         [Header("View")]
         public BaseGun Prefab;

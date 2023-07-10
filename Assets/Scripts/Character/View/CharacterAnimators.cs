@@ -6,7 +6,7 @@ using UnityEngine;
 namespace RunShooter.Character
 {
     [CreateAssetMenu(fileName = "CharacterAnimators", menuName = "ScriptableObjects/CharacterAnimators_ScriptableObject")]
-    public class CharacterAnimators_ScriptableObject: ScriptableObject
+    public class CharacterAnimators: ScriptableObject
     {
         [SerializeField] private List<RuntimeAnimatorController> _animatorControllers;
         [SerializeField] private GunData _gunData;

@@ -11,7 +11,7 @@ namespace RunShooter.Character
 
         [SerializeField] private CharacterViewInfo _characterViewInfo;
         [SerializeField] private Animator _animator;
-        [SerializeField] private CharacterAnimators_ScriptableObject _animators;
+        [SerializeField] private CharacterAnimators _animators;
 
         private readonly int _xAxis = Animator.StringToHash("x");
         private readonly int _yAxis = Animator.StringToHash("y");

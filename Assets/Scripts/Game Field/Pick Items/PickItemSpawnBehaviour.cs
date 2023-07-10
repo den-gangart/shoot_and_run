@@ -1,4 +1,5 @@
 using RunShooter.GameProccess;
+using RunShooter.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,9 +12,9 @@ namespace RunShooter.GameProccess
         [SerializeField] private PickItemSpawnParams _params;
         private Transform _player;
 
-        private void Start()
+        public void Init(PlayerObject player)
         {
-            _player = Root.Instance.Player.transform;
+            _player = player.transform;
             _waitDelay = new WaitForSeconds(_params.spawnTimeFrequency);
         }
 

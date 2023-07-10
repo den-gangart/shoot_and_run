@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4714423f723bd9b469845d53418ab1cd, type: 3}
   m_Name: Enemy Spawn Params
   m_EditorClassIdentifier: 
-  enemyPrefabs: {fileID: 4164424563484474107, guid: 84db4db5fbe2b584b831b3ce213a552c,
+  enemyPrefab: {fileID: 4963373562092022199, guid: 84db4db5fbe2b584b831b3ce213a552c,
     type: 3}
   intitialCount: 2
   incrementCount: 1

@@ -331,11 +331,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPermanent: 0
+  _enemySpawner: {fileID: 885823337}
+  _pickItemsSpawner: {fileID: 885823339}
   _mapPrefab: {fileID: 94004115423653915, guid: 456d396e59d23ce45809ede1a5723dbb,
     type: 3}
   _playerPrefab: {fileID: 8035595464941864442, guid: a83081150f1f722429538a5829ed9ec5,
     type: 3}
   _playerUIPrefab: {fileID: 1742974783899504809, guid: d8bee51eada963041b07198215443212,
+    type: 3}
+  _screenInputPrefab: {fileID: 8953684213450291571, guid: 269c1c06c372a0c429dc1cee9bb6040d,
     type: 3}
   _gameStatBehaviour: {fileID: 1985450664}
 --- !u!4 &1693336138

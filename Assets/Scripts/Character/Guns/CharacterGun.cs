@@ -16,10 +16,10 @@ namespace RunShooter.Character
         private BaseGun _gun;
         private CharacterType _characterType;
 
-        public void Initialize(Transform gunParent)
+        public void Init(Transform gunParent, CharacterType type)
         {
             _gunParent = gunParent;
-            _characterType = GetComponent<ICharacter>().CharacterType;
+            _characterType = type;
         }
 
         public bool TryShoot()

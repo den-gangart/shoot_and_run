@@ -17,8 +17,7 @@ MonoBehaviour:
     damage: 20
     coolDown: 0.5
     maxDistance: 10
-    spawnChance: 0
-    Icon: {fileID: 2800000, guid: 139cd3cadcc2b874098c1a2058eff146, type: 3}
+    spawnChance: -1
     Prefab: {fileID: 329038325766146538, guid: 226c568e48d1bbc45a3110f8660d2e2c, type: 3}
     AnimatorType: 1
   - id: 1
@@ -26,7 +25,6 @@ MonoBehaviour:
     coolDown: 0.1
     maxDistance: 10
     spawnChance: 30
-    Icon: {fileID: 2800000, guid: 139cd3cadcc2b874098c1a2058eff146, type: 3}
     Prefab: {fileID: 4515107516723230252, guid: 0ad09dd81121ac247850956387ca9111,
       type: 3}
     AnimatorType: 2
@@ -35,7 +33,6 @@ MonoBehaviour:
     coolDown: 0.2
     maxDistance: 10
     spawnChance: 20
-    Icon: {fileID: 2800000, guid: 139cd3cadcc2b874098c1a2058eff146, type: 3}
     Prefab: {fileID: 4445337404709098670, guid: 26c304c542935a646a21dd134e1c2cea,
       type: 3}
     AnimatorType: 2
@@ -44,7 +41,6 @@ MonoBehaviour:
     coolDown: 2
     maxDistance: 10
     spawnChance: 5
-    Icon: {fileID: 2800000, guid: 139cd3cadcc2b874098c1a2058eff146, type: 3}
     Prefab: {fileID: 5405672273173742349, guid: f3aa0537edf19a840a5ee3762f7bb9ed,
       type: 3}
     AnimatorType: 3
@@ -53,7 +49,6 @@ MonoBehaviour:
     coolDown: 0.05
     maxDistance: 10
     spawnChance: 5
-    Icon: {fileID: 2800000, guid: 139cd3cadcc2b874098c1a2058eff146, type: 3}
     Prefab: {fileID: 6036209134695700690, guid: 79cfad6d28604f54a97b32d45af9d2b2,
       type: 3}
     AnimatorType: 4
@@ -62,6 +57,5 @@ MonoBehaviour:
     coolDown: 2
     maxDistance: 1
     spawnChance: 0
-    Icon: {fileID: 2800000, guid: 139cd3cadcc2b874098c1a2058eff146, type: 3}
     Prefab: {fileID: 389258904427037386, guid: 7b2284d4a9faf474492e3b11a78a77ca, type: 3}
     AnimatorType: 0

@@ -12,11 +12,14 @@ namespace RunShooter.Character
     {
         private Transform _playerTransform;
         private NavMeshAgent _navMeshAgent;
+        private const float DESTROY_TIME = 2f;
 
-        private void Start()
+        public void Init(PlayerObject playerObject)
         {
-            _playerTransform = Root.Instance.Player.transform;
+            _playerTransform = playerObject.transform;
             _navMeshAgent = GetComponent<NavMeshAgent>();
+
+            base.Init();
         }
 
         protected override void CheckMovement()
@@ -45,6 +48,18 @@ namespace RunShooter.Character
         {
             _navMeshAgent.isStopped = true;
             base.HandleDeath();
+        }
+
+        protected override void OnDead()
+        {
+            EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_ENEMY_DEAD));
+            StartCoroutine(DestroyRoutine());
+        }
+
+        private IEnumerator DestroyRoutine()
+        {
+            yield return new WaitForSeconds(DESTROY_TIME);
+            Destroy(this.gameObject);
         }
 
         private Vector2 GetForwardToPlayer()

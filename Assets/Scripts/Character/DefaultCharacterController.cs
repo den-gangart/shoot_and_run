@@ -1,72 +1,49 @@
-using RunShooter.InputSystem;
-using RunShooter.Player;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RunShooter.Character
 {
-    [RequireComponent(typeof(CharacterBehaviour))]
     [RequireComponent(typeof(CharacterGun))]
     [RequireComponent(typeof(ICharacterMovement))]
     [RequireComponent(typeof(ICharacterView))]
-    public class DefaultCharacterController : MonoBehaviour
+    public class DefaultCharacterController : MonoBehaviour, IDamagable, ICharacter
     {
-        private CharacterBehaviour _characterBehaviour;
+        public CharacterType CharacterType { get { return _characterType; } }
+        public CharacterStateHandler StateHandler { get; private set; }
+        public Health Health { get; private set; }
+
+        [Header("Character Params")]
+        [SerializeField] private CharacterState _defaultState;
+        [SerializeField] private CharacterType _characterType;
+        [SerializeField] private float _healthMaxValue = 100f;
+
         protected CharacterGun _characterGun;
         protected ICharacterMovement _characterMovement;
         protected ICharacterView _characterView;
-        protected CharacterStateHandler _stateHandler;
 
-        private void Awake()
+        public virtual void Init()
         {
-            _characterBehaviour = GetComponent<CharacterBehaviour>();
-            _characterBehaviour.Initialize();
+            StateHandler = new CharacterStateHandler(_defaultState);
+
+            Health = new Health(_healthMaxValue);
+            Health.OnDead += HandleDeath;
+            Health.OnHealthChanged += OnHealthChanged;
 
             _characterView = GetComponent<ICharacterView>();
 
             _characterGun = GetComponent<CharacterGun>();
-            _characterGun.Initialize(_characterView.ViewInfo.gunParent);
+            _characterGun.Init(_characterView.ViewInfo.gunParent, _characterType);
 
-            _stateHandler = _characterBehaviour.StateHandler;
             _characterMovement = GetComponent<ICharacterMovement>();
         }
 
-        private void FixedUpdate()
+        public void TakeDamage(float damage)
         {
-            if(_stateHandler.State == CharacterState.Idle)
-            {
-                CheckMovement();
-                CheckRotation();
-                CheckShoot();
-            }    
+            Health.TakeDamage(damage);
         }
 
-        private void OnEnable()
+        public void Kill()
         {
-            _stateHandler.StateChanged += OnStateChanged;
-            _characterBehaviour.Health.OnHealthChanged += OnHealthChanged;
-        }
-        private void OnDisable()
-        {
-            _stateHandler.StateChanged -= OnStateChanged;
-            _characterBehaviour.Health.OnHealthChanged -= OnHealthChanged;
-        }
-
-        private void OnStateChanged(CharacterState newState)
-        {
-            if(newState == CharacterState.Dead)
-            {
-                HandleDeath();
-            }
-        }
-
-        private void OnHealthChanged(float prev, float current)
-        {
-            if(current < prev)
-            {
-                _characterView.Hit();
-            }
+            Health.Kill();
         }
 
         public void SelectGun(int gunid)
@@ -83,13 +60,39 @@ namespace RunShooter.Character
             }
         }
 
-        protected virtual void CheckMovement() { }
-        protected virtual void CheckRotation() { }
-
         protected virtual void HandleDeath()
         {
             _characterView.Kill();
             _characterMovement.Kill();
+
+            StateHandler.ChangeState(CharacterState.Dead);
+
+            OnDead();
+        }
+
+        protected virtual void CheckMovement() { }
+
+        protected virtual void CheckRotation() { }
+
+        protected virtual void OnDead() { }
+
+
+        private void FixedUpdate()
+        {
+            if(StateHandler.State == CharacterState.Idle)
+            {
+                CheckMovement();
+                CheckRotation();
+                CheckShoot();
+            }    
+        }
+
+        private void OnHealthChanged(float prev, float current)
+        {
+            if(current < prev)
+            {
+                _characterView.Hit();
+            }
         }
     }
 }

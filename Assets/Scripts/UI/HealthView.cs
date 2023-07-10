@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using RunShooter.Character;
 using RunShooter.GameProccess;
+using RunShooter.Player;
 
 namespace RunShooter.UI
 {
@@ -17,9 +18,9 @@ namespace RunShooter.UI
         private float _currentHealth;
         private float _targetHealth;
 
-        private void Start()
+        public void Init(PlayerObject player)
         {
-            _health = Root.Instance.Player.GetComponent<CharacterBehaviour>().Health;
+            _health = player.GetComponent<DefaultCharacterController>().Health;
             _health.OnHealthChanged += OnHealthChanged;
 
             _currentHealth = 0;

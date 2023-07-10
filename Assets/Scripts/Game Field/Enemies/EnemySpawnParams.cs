@@ -8,7 +8,7 @@ namespace RunShooter
     [CreateAssetMenu(fileName = "EnemySpawnParams", menuName = "ScriptableObjects/EnemySpawnParams_ScriptableObject")]
     public class EnemySpawnParams : ScriptableObject
     {
-        public Enemy enemyPrefabs;
+        public EnemyController enemyPrefab;
 
         public int intitialCount = 5;
         public int incrementCount = 2; 

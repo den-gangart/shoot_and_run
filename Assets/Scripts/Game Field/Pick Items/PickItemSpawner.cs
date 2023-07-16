@@ -2,25 +2,27 @@ using RunShooter.GameProccess;
 using RunShooter.Player;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Localization.Platform.Android;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace RunShooter.GameProccess
 {
-    public class PickItemSpawnBehaviour : BaseSpawnFactory
+    public class PickItemSpawner : BaseSpawnFactory
     {
-        [SerializeField] private PickItemSpawnParams _params;
+        private PickItemSpawnParams _params;
         private Transform _player;
 
-        public void Init(PlayerObject player)
+        public PickItemSpawner(MonoBehaviour context, PlayerObject player, PickItemSpawnParams spawnParams) : base(context) 
         {
             _player = player.transform;
+            _params = spawnParams;
             _waitDelay = new WaitForSeconds(_params.spawnTimeFrequency);
         }
 
         protected override void SpawnObject()
         {
-            Instantiate(_params.GetRandomItem(), GetSpawnPosition(), Quaternion.identity);
+            Object.Instantiate(_params.GetRandomItem(), GetSpawnPosition(), Quaternion.identity);
         }
 
         private Vector3 GetSpawnPosition()

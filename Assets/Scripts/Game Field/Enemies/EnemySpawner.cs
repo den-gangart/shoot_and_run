@@ -7,24 +7,25 @@ using UnityEngine.AI;
 
 namespace RunShooter.GameProccess
 {
-    public class EnemySpawnBehaviour : BaseSpawnFactory, IEventListener
+    public class EnemySpawner : BaseSpawnFactory
     {
-        [SerializeField] private EnemySpawnParams _spawnParams;
-
+        private EnemySpawnParams _spawnParams;
         private PlayerObject _player;
         private WaitForSeconds _enemySpawnDelay;
         private int _waveCount = 0;
 
-        public void Init(PlayerObject player)
+        public EnemySpawner(MonoBehaviour context, PlayerObject player, EnemySpawnParams spawnParams) : base(context) 
         {
             _player = player;
+            _spawnParams = spawnParams;
+
             _waitDelay = new WaitForSeconds(_spawnParams.waveDelay);
             _enemySpawnDelay = new WaitForSeconds(_spawnParams.spawnDelay);
         }
 
         protected override void SpawnObject()
         {
-            StartCoroutine(SpawnEnemiesRoutine());
+            _context.StartCoroutine(SpawnEnemiesRoutine());
             _waveCount++;
         }
 
@@ -34,7 +35,7 @@ namespace RunShooter.GameProccess
 
             for(int i = 0; i < currentEnemyCount; i++)
             {
-                var enemy = Instantiate(_spawnParams.enemyPrefab, GetSpawnPosition(), Quaternion.identity);
+                var enemy = Object.Instantiate(_spawnParams.enemyPrefab, GetSpawnPosition(), Quaternion.identity);
                 enemy.Init(_player);
 
                 yield return _enemySpawnDelay;

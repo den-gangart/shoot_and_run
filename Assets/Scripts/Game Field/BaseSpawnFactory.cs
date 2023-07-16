@@ -4,43 +4,27 @@ using UnityEngine;
 
 namespace RunShooter.GameProccess
 {
-    public class BaseSpawnFactory : MonoBehaviour, IEventListener
+    public class BaseSpawnFactory
     {
-        private IEnumerator _activeSpawnRoutine;
+        protected MonoBehaviour _context;
         protected WaitForSeconds _waitDelay;
 
-        private void OnEnable()
+        private IEnumerator _activeSpawnRoutine;
+
+        public BaseSpawnFactory(MonoBehaviour context)
         {
-            EventSystem.AddEventListener<GameFieldEvent>(OnEventRecivied);
+            _context = context;
         }
 
-        private void OnDisable()
-        {
-            EventSystem.RemoveEventListener<GameFieldEvent>(OnEventRecivied);
-        }
-
-        public void OnEventRecivied(BaseEvent baseEvent)
-        {
-            if (baseEvent.Name == GameFieldEvent.ON_GAME_STARTED)
-            {
-                OnGameStarted();
-            }
-            else if (baseEvent.Name == GameFieldEvent.ON_GAME_FINISHED)
-            {
-                OnGameFinished();
-            }
-        }
-
-        private void OnGameStarted()
+        public void StartSpawn()
         {
             _activeSpawnRoutine = SpawnRoutine();
-            StartCoroutine(_activeSpawnRoutine);
+            _context.StartCoroutine(_activeSpawnRoutine);
         }
 
-
-        private void OnGameFinished()
+        public void StopSpawn()
         {
-            StopCoroutine(_activeSpawnRoutine);
+            _context.StopCoroutine(_activeSpawnRoutine);
         }
 
         private IEnumerator SpawnRoutine()

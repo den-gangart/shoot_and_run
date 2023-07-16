@@ -16,7 +16,23 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: a1aa13f33c5d7e34886cb94eacfe9033
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: a83081150f1f722429538a5829ed9ec5
+    m_Address: Assets/Prefabs/Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 84db4db5fbe2b584b831b3ce213a552c
+    m_Address: Assets/Prefabs/Enemy.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: d8bee51eada963041b07198215443212
+    m_Address: Assets/Prefabs/UI/InGame/InGame UI.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 269c1c06c372a0c429dc1cee9bb6040d
+    m_Address: Assets/Prefabs/UI/InGame/Input/Screen Input.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 37c1fdd546a52d34ea1055e832df3212, type: 2}
   m_SchemaSet:

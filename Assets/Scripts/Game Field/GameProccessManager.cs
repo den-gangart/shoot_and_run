@@ -1,3 +1,6 @@
+using RunShooter.Character;
+using RunShooter.Player;
+using RunShooter.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,56 +10,50 @@ using UnityEngine.EventSystems;
 
 namespace RunShooter
 {
-    public class GameProccessManager: IDisposable
+    public class GameProccessManager
     {
+        public event Action GameStarted;
+        public event Action GameFinished;
+
+        private bool _isPause;
+
         private int START_DELAY = 4000;
         private int FINISH_DELAY = 2000;
 
         private const int PAUSE_TIME_SCALE = 0;
         private const int PLAY_TIME_SCALE = 1;
 
-        public GameProccessManager()
+        public GameProccessManager(PlayerObject player, GameFieldUI gameFieldUI)
         {
-            StartGame();
-            EventSystem.AddEventListener<GameFieldEvent>(OnGameEventHandler);
+            player.GetComponent<DefaultCharacterController>().Health.OnDead += FinishGame;
+
+            gameFieldUI.PausePress += PausePressed;
+            gameFieldUI.RestartPress += RestartGame;
+            gameFieldUI.ExitPress += ExitGame;
+
+            _isPause = false;
         }
 
-        public void Dispose()
-        {
-            EventSystem.RemoveEventListener<GameFieldEvent>(OnGameEventHandler);
-        }
-
-        private void OnGameEventHandler(BaseEvent baseEvent)
-        {
-            if(baseEvent.Name == GameFieldEvent.ON_PLAYER_DEAD)
-            {
-                FinishGame();
-            }
-        }
-
-        private async void StartGame()
+        public async void StartGame()
         {
             await Task.Delay(START_DELAY);
             EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_GAME_STARTED));
+            GameStarted?.Invoke();
         }
 
-        private async void FinishGame()
+        public async void FinishGame()
         {
             await Task.Delay(FINISH_DELAY);
             EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_GAME_FINISHED));
             EventSystem.Broadcast(new SoundEvent(SoundEvent.ON_STOP_BG_MUSIC));
+            GameFinished?.Invoke();
         }
 
-        public void PauseGame()
+        public void PausePressed()
         {
-            Time.timeScale = PAUSE_TIME_SCALE;
-            EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_GAME_PAUSE));
-        }
-
-        public void ResumeGame()
-        {
-            Time.timeScale = PLAY_TIME_SCALE;
-            EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_GAME_RESUME));
+            _isPause = !_isPause;
+            Time.timeScale = _isPause ? PAUSE_TIME_SCALE : PLAY_TIME_SCALE;
+            EventSystem.Broadcast(new GameFieldEvent(_isPause ? GameFieldEvent.ON_GAME_PAUSE : GameFieldEvent.ON_GAME_RESUME));
         }
 
         public void RestartGame()

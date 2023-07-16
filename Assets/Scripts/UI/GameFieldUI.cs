@@ -13,16 +13,16 @@ namespace RunShooter.UI
     [RequireComponent(typeof(Animator))]
     public class GameFieldUI : MonoBehaviour, IEventListener
     {
-        public ScreenInput ScreenInput { get  => _screnInput; }
+        public event Action PausePress;
+        public event Action ExitPress;
+        public event Action RestartPress;
 
-        [SerializeField] private ScreenInput _screnInput;
         [SerializeField] private HealthView _healthView;
         [SerializeField] private ResultPopup _resultPopup;
         [SerializeField] private TextMeshProUGUI _killCounter;
         [SerializeField] private TextMeshProUGUI _timerCounter;
 
         private GameStatBehaviour _gameStat;
-        private GameProccessManager _gameManager;
         private Animator _animator;
 
         private readonly int _animPause = Animator.StringToHash("Pause");
@@ -30,10 +30,9 @@ namespace RunShooter.UI
         private readonly int _animBack = Animator.StringToHash("Back");
         private const string TIME_FORMAT = @"mm\:ss";
 
-        public void Initialize(GameStatBehaviour gameStat, GameProccessManager gameManager, PlayerObject player)
+        public void Initialize(GameStatBehaviour gameStat, PlayerObject player)
         {
             _gameStat = gameStat;
-            _gameManager = gameManager;
             _animator = GetComponent<Animator>();
 
             _gameStat.OnKill += OnKill;
@@ -62,19 +61,19 @@ namespace RunShooter.UI
 
         public void OnPausePressed()
         {
-            _gameManager.PauseGame();
+            PausePress?.Invoke();
             _animator.SetTrigger(_animPause);
         }
 
         public void OnResumePressed()
         {
-            _gameManager.ResumeGame();
+            PausePress?.Invoke();
             _animator.SetTrigger(_animBack);
         }
 
         public void OnRestartPressed()
         {
-            _gameManager.RestartGame();
+           RestartPress?.Invoke();
         }
 
         public void FinishGame()
@@ -85,7 +84,7 @@ namespace RunShooter.UI
 
         public void OnExitPressed()
         {
-            _gameManager.ExitGame();
+            ExitPress?.Invoke();
         }
 
         private void OnKill(int newKillAmount)

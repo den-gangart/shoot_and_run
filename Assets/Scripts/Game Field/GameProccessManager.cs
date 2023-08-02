@@ -23,14 +23,8 @@ namespace RunShooter
         private const int PAUSE_TIME_SCALE = 0;
         private const int PLAY_TIME_SCALE = 1;
 
-        public GameProccessManager(PlayerObject player, GameFieldUI gameFieldUI)
+        public GameProccessManager()
         {
-            player.GetComponent<DefaultCharacterController>().Health.OnDead += FinishGame;
-
-            gameFieldUI.PausePress += PausePressed;
-            gameFieldUI.RestartPress += RestartGame;
-            gameFieldUI.ExitPress += ExitGame;
-
             _isPause = false;
         }
 

@@ -13,7 +13,7 @@ namespace RunShooter.InputSystem
         private const string AXIS_VERTICAL = "Vertical";
         private const string AXIS_FIRE = "Fire1";
 
-        public void Initialize(ScreenInput screenInput)
+        public void Init(ScreenInput screenInput)
         {
             _screenInput = screenInput;
         }

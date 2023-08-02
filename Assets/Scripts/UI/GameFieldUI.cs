@@ -22,7 +22,7 @@ namespace RunShooter.UI
         [SerializeField] private TextMeshProUGUI _killCounter;
         [SerializeField] private TextMeshProUGUI _timerCounter;
 
-        private GameStatBehaviour _gameStat;
+        private GameStatHandler _gameStat;
         private Animator _animator;
 
         private readonly int _animPause = Animator.StringToHash("Pause");
@@ -30,13 +30,13 @@ namespace RunShooter.UI
         private readonly int _animBack = Animator.StringToHash("Back");
         private const string TIME_FORMAT = @"mm\:ss";
 
-        public void Initialize(GameStatBehaviour gameStat, PlayerObject player)
+        public void Initialize(GameStatHandler gameStat, PlayerObject player)
         {
             _gameStat = gameStat;
             _animator = GetComponent<Animator>();
 
             _gameStat.OnKill += OnKill;
-            _gameStat.Timer.OnTick += OnTick;
+            _gameStat.StopWatch.OnTick += OnTick;
 
             _healthView.Init(player);
 
@@ -46,7 +46,7 @@ namespace RunShooter.UI
         private void OnDisable()
         {
             _gameStat.OnKill -= OnKill;
-            _gameStat.Timer.OnTick -= OnTick;
+            _gameStat.StopWatch.OnTick -= OnTick;
 
             EventSystem.RemoveEventListener<GameFieldEvent>(OnEventRecivied);
         }
@@ -79,7 +79,7 @@ namespace RunShooter.UI
         public void FinishGame()
         {
             _animator.SetTrigger(_animFinish);
-            _resultPopup.Initialize(_gameStat.KilledCount, GetFormattedTime(_gameStat.Timer.ElapsedTime));
+            _resultPopup.Initialize(_gameStat.KilledCount, GetFormattedTime(_gameStat.StopWatch.ElapsedTime));
         }
 
         public void OnExitPressed()

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace RunShooter
+namespace RunShooter.GameProccess
 {
-    public class TimerBehaviour : MonoBehaviour
+    public class StopwatchBehaviour : MonoBehaviour
     {
         public event Action<float> OnTick;
 

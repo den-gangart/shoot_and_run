@@ -111,7 +111,7 @@ namespace RunShooter
             PlayCurrentSound();
         }
 
-        private void PlayCurrentSound()
+        private async void PlayCurrentSound()
         {
             int soundCount = _currentSceneSettings.GetSoundCount();
 
@@ -131,7 +131,9 @@ namespace RunShooter
             }
 
             string currentSound = _currentSceneSettings.GetSound(_currentSoundIndex);
-            _currentSourceHandler = AudioHandler.Instance.PlayGameSound(currentSound, gameObject);
+
+            _currentSourceHandler = await AudioHandler.Instance.GetAudioHanlder(currentSound);
+            _currentSourceHandler.Play();
             _currentSourceHandler.SoundStopped += OnBackgroundSoundStopped;
         }
     }

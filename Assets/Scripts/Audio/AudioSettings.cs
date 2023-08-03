@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RunShooter.Data;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 namespace RunShooter
 {
@@ -10,9 +11,14 @@ namespace RunShooter
     {
         protected override string DATA_KEY => "MixerVolumeList";
 
+        [Header("Mixer volume")]
         [SerializeField] private List<AudioMixerInfo> _mixerList;
-        [SerializeField] private List<AudioComponent> _audioList;
-        private Dictionary<string, AudioComponent> _audioComponentsByNames;
+        [Header("Persistent Audio")]
+        [SerializeField] private List<AudioComponentParams> _audioList;
+        [Header("Scene audio")]
+        [SerializeField] private List<List<AudioComponentParams>> _sceneAudioList;
+
+        private Dictionary<string, AudioComponentParams> _audioComponentsByNames = new Dictionary<string, AudioComponentParams>();
 
         public void SynchronizeMixerGroups()
         {
@@ -22,17 +28,27 @@ namespace RunShooter
             }
         }
 
+        public List<string> GetPersistentSoundNames()
+        {
+            return GenerateNames(_audioList);
+        }
+
+        public List<string> GetSceneSoundNames(int sceneIndex)
+        {
+            return GenerateNames(_sceneAudioList[sceneIndex]);
+        }
+
         public void CreateAudioDictionary()
         {
-            _audioComponentsByNames = new Dictionary<string, AudioComponent>();
+            _audioComponentsByNames = new Dictionary<string, AudioComponentParams>();
 
-            foreach (AudioComponent audioComponent in _audioList)
+            foreach (AudioComponentParams audioComponent in _audioList)
             {
                 _audioComponentsByNames.Add(audioComponent.GetAssetName(), audioComponent);
             }
         }
 
-        public AudioComponent GetAudioComponent(string name)
+        public AudioComponentParams GetAudioComponent(string name)
         {
             return _audioComponentsByNames[name];
         }
@@ -51,6 +67,18 @@ namespace RunShooter
             {
                 _data.volumeList.Add(1f);
             }
+        }
+
+        private List<string> GenerateNames(List<AudioComponentParams> audioParams)
+        {
+            List<string> names = new List<string>(audioParams.Count);
+
+            foreach (var param in audioParams)
+            {
+                names.Add(param.GetAssetName());
+            }
+
+            return names;
         }
     }
 

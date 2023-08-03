@@ -33,6 +33,54 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/UI/InGame/Input/Screen Input.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: a201c2bc70e86bc4c830940e0ed69488
+    m_Address: Assets/Sounds
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0b08814b45589af41b50bb595a076868
+    m_Address: Assets/Sounds/Main_Menu_BG
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c787e74c198907e438545d068ce1dacf
+    m_Address: Assets/Sounds/Game_Field_BG_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c20bf2a214558a54d9c7cf004bd1a674
+    m_Address: Assets/Sounds/Game_Field_BG_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 899e143f928b56c4587e41950a836edf
+    m_Address: Assets/Sounds/Regular_Shoot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 98378d0a2bfab8c4b9e7f25a35d254ca
+    m_Address: Assets/Sounds/Minigun_Shoot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a7894f2f4e022a9458acf5fb7c91507d
+    m_Address: Assets/Sounds/Win_Screen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0648510b3f9402f41b90bdbe15275848
+    m_Address: Assets/Sounds/Item_Pick_Up
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 20254cb486c1e9e489b9284a0766b2cb
+    m_Address: Assets/Sounds/Body_Hit
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f5936b7e6ae2cd0498400ae61b7ef5f3
+    m_Address: Assets/Sounds/Death
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: af0d51584ad4c614bae6ed5444cc7aac
+    m_Address: Assets/Sounds/Button
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b37e935a0074ecc44a7e48eb9b794421
+    m_Address: Assets/Sounds/M4_Shoot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 37c1fdd546a52d34ea1055e832df3212, type: 2}
   m_SchemaSet:

@@ -29,11 +29,18 @@ namespace RunShooter
             }
         }
 
-        public void Initialize(AudioComponent component)
+        public void Initialize(AudioClip clip, AudioComponentParams component)
         {
+            _audioSource.clip = clip;
             component.ApplySettingsToSource(_audioSource);
             SoundName = component.GetAssetName();
             _audioSource.Play();
+        }
+
+        public void Play()
+        {
+            _audioSource.Play();
+            _isPause = false;
         }
 
         public void Stop()

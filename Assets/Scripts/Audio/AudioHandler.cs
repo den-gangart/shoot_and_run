@@ -1,5 +1,10 @@
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.SceneManagement;
 
 namespace RunShooter
 {
@@ -8,23 +13,32 @@ namespace RunShooter
         [SerializeField] private AudioSettings _audioSettings;
         [SerializeField] private ObjectPool _pool;
 
-        private Dictionary<string, List<AudioSourceHandler>> _playingSoundsByNames;
+        private Dictionary<string, List<AudioSourceHandler>> _playingSoundsByNames = new Dictionary<string, List<AudioSourceHandler>>();
+        private Dictionary<string, AudioClip> _cashedClips = new Dictionary<string, AudioClip>();
+
+        private const string SOUND_ADRESS_PREF = "Assets/Sounds/";
 
         override protected void OnAwake()
         {
             _audioSettings.CreateAudioDictionary();
             _audioSettings.SynchronizeMixerGroups();
-            _playingSoundsByNames = new Dictionary<string, List<AudioSourceHandler>>();
         }
 
-        public AudioSourceHandler PlayGameSound(string soundName, GameObject sender)
+        public async Task<AudioSourceHandler> GetAudioHanlder(string soundName)
         {
-            AudioComponent audioComponent = _audioSettings.GetAudioComponent(soundName);
-            AudioSourceHandler source = _pool.GetPooledObject<AudioSourceHandler>();
-            source.transform.position = sender.transform.position;
-            source.Initialize(audioComponent);
-            SavePlayingSource(source, soundName);
-            return source;
+            return await InitializeSoundHandler(soundName);
+        }
+
+        public async void PlayGameSound(string soundName, GameObject sender)
+        {
+            AudioSourceHandler source = await InitializeSoundHandler(soundName);
+
+            if(sender != null) 
+            {
+                source.transform.position = sender.transform.position;
+            }
+
+            source.Play();
         }
 
         public void StopGameSound(string soundName)
@@ -37,7 +51,7 @@ namespace RunShooter
 
         public void PauseGameSound(string soundName)
         {
-            foreach (var source in GetSourceList(soundName))
+            foreach (var source in GetSourceList(soundName))  
             {
                 source.Pause();
             }
@@ -53,7 +67,37 @@ namespace RunShooter
 
         public bool IsSoundPlaying(string soundName)
         {
-            return Instance.GetSourceList(soundName).Count > 0;
+            return GetSourceList(soundName).Count > 0;
+        }
+
+        private async Task<AudioSourceHandler> InitializeSoundHandler(string soundName)
+        {
+            if (!_cashedClips.ContainsKey(soundName))
+            {
+                await LoadClip(soundName);
+            }
+
+            AudioComponentParams audioComponent = _audioSettings.GetAudioComponent(soundName);
+            AudioSourceHandler source = _pool.GetPooledObject<AudioSourceHandler>();
+            source.Initialize(_cashedClips[soundName], audioComponent);
+            SavePlayingSource(source, soundName);
+
+            return source;
+        }
+
+        private async Task LoadClip(string name)
+        {
+            var operation = Addressables.LoadAssetAsync<AudioClip>(SOUND_ADRESS_PREF + name);
+            AudioClip clip = await operation.Task;
+
+            if (operation.Status == AsyncOperationStatus.Failed)
+            {
+                Debug.LogWarning("Missed sound in assets");
+                _cashedClips.Add(name, null);
+                return;
+            }
+
+            _cashedClips.Add(name, clip);
         }
 
         private List<AudioSourceHandler> GetSourceList(string soundName)

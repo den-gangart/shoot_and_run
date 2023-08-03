@@ -26,102 +26,80 @@ MonoBehaviour:
   - _mixer: {fileID: 24100000, guid: 5eae8da3e79bf2b49bc2e9174066478e, type: 2}
     _paramName: FX_Volume
   _audioList:
-  - _clip: {fileID: 8300000, guid: 0b08814b45589af41b50bb595a076868, type: 3}
+  - _assetName: Main_Menu_BG
+    _clip: {fileID: 8300000, guid: 0b08814b45589af41b50bb595a076868, type: 3}
     _mixerGroup: {fileID: -2455811446965464431, guid: 5eae8da3e79bf2b49bc2e9174066478e,
       type: 2}
     _volume: 1
     _loop: 1
-    _pitch: 1
-    _stereoPan: 0
     _spatialBlend: 0
-    _reverbZoneMix: 0
-  - _clip: {fileID: 8300000, guid: c787e74c198907e438545d068ce1dacf, type: 3}
+  - _assetName: Game_Field_BG_1
+    _clip: {fileID: 8300000, guid: c787e74c198907e438545d068ce1dacf, type: 3}
     _mixerGroup: {fileID: -2455811446965464431, guid: 5eae8da3e79bf2b49bc2e9174066478e,
       type: 2}
     _volume: 1
     _loop: 1
-    _pitch: 1
-    _stereoPan: 0
     _spatialBlend: 0
-    _reverbZoneMix: 0
-  - _clip: {fileID: 8300000, guid: c20bf2a214558a54d9c7cf004bd1a674, type: 3}
+  - _assetName: Game_Field_BG_2
+    _clip: {fileID: 8300000, guid: c20bf2a214558a54d9c7cf004bd1a674, type: 3}
     _mixerGroup: {fileID: -2455811446965464431, guid: 5eae8da3e79bf2b49bc2e9174066478e,
       type: 2}
     _volume: 1
     _loop: 1
-    _pitch: 1
-    _stereoPan: 0
     _spatialBlend: 0
-    _reverbZoneMix: 0
-  - _clip: {fileID: 8300000, guid: 899e143f928b56c4587e41950a836edf, type: 3}
+  - _assetName: Regular_Shoot
+    _clip: {fileID: 8300000, guid: 899e143f928b56c4587e41950a836edf, type: 3}
     _mixerGroup: {fileID: 5716213638324753391, guid: 5eae8da3e79bf2b49bc2e9174066478e,
       type: 2}
     _volume: 1
     _loop: 0
-    _pitch: 1
-    _stereoPan: 0
     _spatialBlend: 0.2
-    _reverbZoneMix: 0
-  - _clip: {fileID: 8300000, guid: 98378d0a2bfab8c4b9e7f25a35d254ca, type: 3}
+  - _assetName: Minigun_Shoot
+    _clip: {fileID: 8300000, guid: 98378d0a2bfab8c4b9e7f25a35d254ca, type: 3}
     _mixerGroup: {fileID: 5716213638324753391, guid: 5eae8da3e79bf2b49bc2e9174066478e,
       type: 2}
     _volume: 1
     _loop: 0
-    _pitch: 1
-    _stereoPan: 0
     _spatialBlend: 0.2
-    _reverbZoneMix: 0
-  - _clip: {fileID: 8300000, guid: a7894f2f4e022a9458acf5fb7c91507d, type: 3}
+  - _assetName: Win_Screen
+    _clip: {fileID: 8300000, guid: a7894f2f4e022a9458acf5fb7c91507d, type: 3}
     _mixerGroup: {fileID: -2455811446965464431, guid: 5eae8da3e79bf2b49bc2e9174066478e,
       type: 2}
     _volume: 1
     _loop: 0
-    _pitch: 1
-    _stereoPan: 0
     _spatialBlend: 0
-    _reverbZoneMix: 0
-  - _clip: {fileID: 8300000, guid: 0648510b3f9402f41b90bdbe15275848, type: 3}
+  - _assetName: Item_Pick_Up
+    _clip: {fileID: 8300000, guid: 0648510b3f9402f41b90bdbe15275848, type: 3}
     _mixerGroup: {fileID: 5716213638324753391, guid: 5eae8da3e79bf2b49bc2e9174066478e,
       type: 2}
     _volume: 1
     _loop: 0
-    _pitch: 1
-    _stereoPan: 0
     _spatialBlend: 0
-    _reverbZoneMix: 0
-  - _clip: {fileID: 8300000, guid: 20254cb486c1e9e489b9284a0766b2cb, type: 3}
+  - _assetName: Body_Hit
+    _clip: {fileID: 8300000, guid: 20254cb486c1e9e489b9284a0766b2cb, type: 3}
     _mixerGroup: {fileID: 5716213638324753391, guid: 5eae8da3e79bf2b49bc2e9174066478e,
       type: 2}
     _volume: 1
     _loop: 0
-    _pitch: 1
-    _stereoPan: 0
     _spatialBlend: 0
-    _reverbZoneMix: 0
-  - _clip: {fileID: 8300000, guid: f5936b7e6ae2cd0498400ae61b7ef5f3, type: 3}
+  - _assetName: Death
+    _clip: {fileID: 8300000, guid: f5936b7e6ae2cd0498400ae61b7ef5f3, type: 3}
     _mixerGroup: {fileID: 5716213638324753391, guid: 5eae8da3e79bf2b49bc2e9174066478e,
       type: 2}
     _volume: 1
     _loop: 0
-    _pitch: 1
-    _stereoPan: 0
     _spatialBlend: 0
-    _reverbZoneMix: 0
-  - _clip: {fileID: 8300000, guid: af0d51584ad4c614bae6ed5444cc7aac, type: 3}
+  - _assetName: Button
+    _clip: {fileID: 8300000, guid: af0d51584ad4c614bae6ed5444cc7aac, type: 3}
     _mixerGroup: {fileID: 5716213638324753391, guid: 5eae8da3e79bf2b49bc2e9174066478e,
       type: 2}
     _volume: 1
     _loop: 0
-    _pitch: 1
-    _stereoPan: 0
     _spatialBlend: 0
-    _reverbZoneMix: 0
-  - _clip: {fileID: 8300000, guid: b37e935a0074ecc44a7e48eb9b794421, type: 3}
+  - _assetName: M4_Shoot
+    _clip: {fileID: 8300000, guid: b37e935a0074ecc44a7e48eb9b794421, type: 3}
     _mixerGroup: {fileID: 5716213638324753391, guid: 5eae8da3e79bf2b49bc2e9174066478e,
       type: 2}
     _volume: 1
     _loop: 0
-    _pitch: 1
-    _stereoPan: 0
     _spatialBlend: 0
-    _reverbZoneMix: 0

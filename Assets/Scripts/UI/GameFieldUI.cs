@@ -37,6 +37,7 @@ namespace RunShooter.UI
 
             _gameStat.OnKill += OnKill;
             _gameStat.StopWatch.OnTick += OnTick;
+            OnKill(0);
 
             _healthView.Init(player);
 
@@ -89,7 +90,7 @@ namespace RunShooter.UI
 
         private void OnKill(int newKillAmount)
         {
-            _killCounter.text = _gameStat.KilledCount.ToString();
+            _killCounter.text = newKillAmount.ToString();
         }
 
         private void OnTick(float elapsedTime)

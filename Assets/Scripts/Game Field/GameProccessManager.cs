@@ -17,30 +17,28 @@ namespace RunShooter
 
         private bool _isPause;
 
-        private int START_DELAY = 4000;
-        private int FINISH_DELAY = 2000;
+        private float START_DELAY = 4f;
+        private float FINISH_DELAY = 2f;
 
         private const int PAUSE_TIME_SCALE = 0;
         private const int PLAY_TIME_SCALE = 1;
 
-        public GameProccessManager()
+        private MonoBehaviour _context;
+
+        public GameProccessManager(MonoBehaviour context)
         {
             _isPause = false;
+            _context = context;
         }
 
-        public async void StartGame()
+        public void StartGame()
         {
-            await Task.Delay(START_DELAY);
-            EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_GAME_STARTED));
-            GameStarted?.Invoke();
+            _context.StartCoroutine(StartRoutine());
         }
 
-        public async void FinishGame()
+        public void FinishGame()
         {
-            await Task.Delay(FINISH_DELAY);
-            EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_GAME_FINISHED));
-            EventSystem.Broadcast(new SoundEvent(SoundEvent.ON_STOP_BG_MUSIC));
-            GameFinished?.Invoke();
+            _context.StartCoroutine(FinishRoutine());
         }
 
         public void PausePressed()
@@ -60,6 +58,21 @@ namespace RunShooter
         {
             SceneLoader.Instance.LoadScene(SceneIndex.MainMenu);
             Time.timeScale = PLAY_TIME_SCALE;
+        }
+
+        private IEnumerator StartRoutine()
+        {
+            yield return new WaitForSeconds(START_DELAY);
+            EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_GAME_STARTED));
+            GameStarted?.Invoke();
+        }
+
+        private IEnumerator FinishRoutine()
+        {
+            yield return new WaitForSeconds(FINISH_DELAY);
+            EventSystem.Broadcast(new GameFieldEvent(GameFieldEvent.ON_GAME_FINISHED));
+            EventSystem.Broadcast(new SoundEvent(SoundEvent.ON_STOP_BG_MUSIC));
+            GameFinished?.Invoke();
         }
     }
 }

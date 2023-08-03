@@ -1,12 +1,7 @@
 using RunShooter.Character;
 using RunShooter.GameProccess;
 using RunShooter.Player;
-using RunShooter.UI;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnityEditor.Localization.Platform.Android;
 using UnityEngine;
 
 namespace RunShooter.Data
@@ -21,22 +16,26 @@ namespace RunShooter.Data
 
         public async Task Init(MonoBehaviour context)
         {
-            GameProccessManager = new GameProccessManager();
+            GameProccessManager = new GameProccessManager(context);
 
+            // Map
             MapEntity mapInstaller = new MapEntity();
             await mapInstaller.Init();
             Map = mapInstaller.Map;
             RegisterChild(mapInstaller);
 
+            // Player
             PlayerEntity playerInstaller = new PlayerEntity();
             await playerInstaller.Init(mapInstaller.Map.spawnPoint);
             PlayerObject = playerInstaller.Player;
             RegisterChild(playerInstaller);
 
+            // Spawners
             SpawnerInstaller spawnerInstaller = new SpawnerInstaller();
             spawnerInstaller.Init(context, playerInstaller.Player, mapInstaller.Map, GameProccessManager);
             RegisterChild(spawnerInstaller);
 
+            // Connect plyaer death with game proccess
             _playerController = playerInstaller.Player.GetComponent<DefaultCharacterController>();
             _playerController.Health.OnDead += GameProccessManager.FinishGame;
         }

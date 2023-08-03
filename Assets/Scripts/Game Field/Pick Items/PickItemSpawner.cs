@@ -2,7 +2,6 @@ using RunShooter.GameProccess;
 using RunShooter.Player;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Localization.Platform.Android;
 using UnityEngine;
 using UnityEngine.AI;
 

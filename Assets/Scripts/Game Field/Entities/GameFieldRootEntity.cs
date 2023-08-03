@@ -1,16 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using RunShooter.UI;
-using RunShooter.Character;
-using RunShooter.InputSystem;
-using RunShooter.Player;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using RunShooter.Data;
-using System.Threading.Tasks;
-using System;
-
 namespace RunShooter.Data
 {
     public class GameFieldRootEntity : MonoEntity
